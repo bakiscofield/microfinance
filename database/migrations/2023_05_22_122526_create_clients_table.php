@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("id_utilisateur");
-            $table->bigInteger("id_zone");
+            $table->bigInteger("user_id");
+            $table->bigInteger("id_zone")->nullable();
             $table->timestamps();
-            $table->foreign("id_utilisateur")->references("id")->on("users");
+            $table->foreign("user_id")->references("id")->on("users");
             $table->foreign("id_zone")->references("id")->on("zones");
         });
     }

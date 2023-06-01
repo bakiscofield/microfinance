@@ -12,11 +12,11 @@ class Client extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "id_utilisateur","id_zone",
+        "user_id","id_zone",
     ];
 
-    public function user() :HasOne{
-        return $this->hasOne(User::class);
+    public function user() :BelongsTo{
+        return $this->belongsTO(User::class);
     }
 
     public function zone() :BelongsTo{

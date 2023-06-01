@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -29,6 +29,7 @@ class User extends Authenticatable
         'ville',
         'adresse',
         'carte',
+        'id'
     ];
 
     /**
@@ -49,14 +50,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'adresse'=>'array',
     ];
 
 
-    public function client():BelongsTo{
-        return $this->belongsTo(Client::class);
+    public function client():HasOne{
+        return $this->hasOne(Client::class);
     }
 
-    public function employe():BelongsTo{
-        return $this->belongsTo(Employe::class);
+    public function employe():HasOne{
+        return $this->hasOne(Employe::class);
     }
 }
