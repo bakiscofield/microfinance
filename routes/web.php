@@ -15,7 +15,7 @@ use App\Models\Employe;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () {/*
     $user = new User();
     $user->nom = "ogbone";
     $user->prenom = "fay";
@@ -37,5 +37,7 @@ Route::get('/', function () {
    // dump($user);
     dd(User::all()->first()->client);
     //dump(Client::find(1)->user);
-   // return view('welcome');
+   return view('welcome');
+*/
+return view('welcome');
 });
