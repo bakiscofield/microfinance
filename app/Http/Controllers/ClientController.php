@@ -13,24 +13,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        // $user = new User();
-        // $user->nom = "ogbone";
-        // $user->prenom = "fay";
-        // $user->date_naissance = "25/02/2002";
-        // $user->contact = "12121212";
-        // $user->profession = "chauffeur";
-        // $user->pays = "togo";
-        // $user->ville = "lome";
-        // $user->adresse = ["hghgff"];
-        // $user->carte = "bhbcfser";
-        // $user->email = "fay@gmail.com";
-        // $user->password = "1234";
-
-        // $user->save();
-
-        // $clt = new Client();
-        // $clt->user_id = User::all()->first()->id;
-        // $clt->save();
+        
         $clients = Client::all();
         return view("clients.index")->with([
             "clients" => $clients,
@@ -42,7 +25,21 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        $user = new User();
+        $user->nom = "Tamba";
+        $user->prenom = "dialo";
+        $user->date_naissance = "25/02/2002";
+        $user->contact = "12121212";
+        $user->profession = "chauffeur";
+        $user->pays = "togo";
+        $user->ville = "lome";
+        $user->adresse = "hghgff";
+        $user->carte = "bhbcfser";
+        $user->email = "fay@gmail.com";
+        $user->password = "123456789";
+        $client = new Client();
+        $client->user_id = $user->id;
+        return view("clients.create_or_edit", compact("client", "user"));
     }
 
     /**
@@ -50,7 +47,13 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create($request->all());
+
+        Client::create([
+            "user_id" => $user->id,
+        ]);
+
+        return redirect()->route("client.index");
     }
 
     /**
