@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigInteger("id_zone")->nullable();
             $table->timestamps();
             $table->foreign("user_id")->references("id")->on("users");
-            $table->foreign("id_zone")->references("id")->on("zones");
+            #$table->foreign("id_zone")->references("id")->on("zones");
         });
     }
 

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("profession");
             $table->string("pays");
             $table->string("ville");
-            $table->json("adresse");
+            $table->string("adresse");
             $table->string("carte");
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

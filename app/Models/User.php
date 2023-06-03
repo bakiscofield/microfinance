@@ -29,7 +29,6 @@ class User extends Authenticatable
         'ville',
         'adresse',
         'carte',
-        'id'
     ];
 
     /**
@@ -50,7 +49,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-        'adresse'=>'array',
     ];
 
 

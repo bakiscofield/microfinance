@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\EmployeController;
 use App\Models\User;
 use App\Models\Client;
 use App\Models\Employe;
@@ -15,29 +17,17 @@ use App\Models\Employe;
 |
 */
 
-Route::get('/', function () {/*
-    $user = new User();
-    $user->nom = "ogbone";
-    $user->prenom = "fay";
-    $user->date_naissance = "25/02/2002";
-    $user->contact = "12121212";
-    $user->profession = "chauffeur";
-    $user->pays = "togo";
-    $user->ville = "lome";
-    $user->adresse = ["hghgff"];
-    $user->carte = "bhbcfser";
-    $user->email = "fay@gmail.com";
-    $user->password = "1234";
-
-    $user->save();
-
-    $clt = new Client();
-    $clt->id_utilisateur = User::all()->first()->id;
-    $clt->save();
-   // dump($user);
-    dd(User::all()->first()->client);
-    //dump(Client::find(1)->user);
-   return view('welcome');
-*/
-return view('welcome');
+Route::get('/', function () {
+    return view('welcome');
 });
+
+Route::get('client/list', [ClientController::class, 'index'])->name("client.index");
+Route::get('client/formulaire/creation', [ClientController::class, 'create'])->name("client.create");
+Route::get('client/formulaire/edition/{client}', [ClientController::class, 'edit'])->name("client.edit");
+Route::post('client/enregistrement', [ClientController::class, 'store'])->name("client.store");
+Route::put('client/mis_a_jours/{client}', [ClientController::class, 'update'])->name("client.update");
+Route::get('client/{client}', [ClientController::class, 'show'])->name("client.show");
+Route::delete('client/{client}', [ClientController::class, 'destroy'])->name("client.destroy");
+
+
+//Route::resource('employe', EmployeController::class);

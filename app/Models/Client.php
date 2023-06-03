@@ -16,7 +16,7 @@ class Client extends Model
     ];
 
     public function user() :BelongsTo{
-        return $this->belongsTO(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function zone() :BelongsTo{
