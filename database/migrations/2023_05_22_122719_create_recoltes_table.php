@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->date("date_recolte");
             $table->string("montant");
-            $table->timestamps();
-            $table->bigInteger("id_agent");
             $table->bigInteger("id_exercice");
-            $table-> foreign("id_agent")-> references("id")->on("agents");
+            $table->bigInteger("id_agent");
+            $table->timestamps();
+            $table-> foreign("id_agent")-> references("id")->on("employes");
             $table -> foreign("id_exercice")-> references("id")->on("exercices");
         });
 

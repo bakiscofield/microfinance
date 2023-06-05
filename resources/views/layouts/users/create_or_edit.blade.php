@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     @php 
-                       $route = $user->id === null ? route($route_name_prefix.".store") : route($route_name_prefix.".update", $employe);
+                       $route = $user->id === null ? route($route_name_prefix.".store") : route($route_name_prefix.".update", $children);
                     @endphp
                     <form action="{{ $route }}" method="POST" onsubmit="">
                         @csrf
@@ -35,6 +35,11 @@
                             @include("components.input_field", ["label" => "mot de passe", "class" => "col-6", "name" => "password", "value" => "", "type" => "password",])
                             @include("components.input_field", ["label" => "comfirmer mot de passe", "class" => "col-6", "name" => "comfirm_password", "value" => "", "type" => "password",])
                         </div>
+                        @if($user->id)
+                        <div class="form-group form-row">
+                            <input type="checkbox" class="" name="change_password" id="change_password">
+                        </div>
+                        @endif
                         @yield("children_content")
                         <button type="submit" class="btn btn-primary w-100">Enregistrer</button>
                     </form>

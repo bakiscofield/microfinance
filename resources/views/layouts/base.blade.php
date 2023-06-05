@@ -567,9 +567,18 @@
                                 </a>
                             </li>
 
-                            <li class="nav-main-heading">Gestion des utilisateurs</li>
-
+                            <li class="nav-main-heading">Gestion tontine</li>
                             <li class="nav-main-item">
+                                <a class="nav-main-link" href="{{ route('client.index') }}">
+                                    <i class="nav-main-link-icon si si-energy"></i>
+                                    <span class="nav-main-link-name">Clients</span>
+                                </a>
+                                <a class="nav-main-link" href="{{ route('exercice.index') }}">
+                                    <i class="nav-main-link-icon si si-energy"></i>
+                                    <span class="nav-main-link-name">Exercices</span>
+                                </a>
+                            </li>
+                            <!--li class="nav-main-item">
                                 <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                                     <i class="nav-main-link-icon si si-energy"></i>
                                     <span class="nav-main-link-name">Blocks</span>
@@ -601,109 +610,13 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li-->
+                            <li class="nav-main-heading">Paramètre généraux</li>
                             <li class="nav-main-item">
-                                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                    <i class="nav-main-link-icon si si-badge"></i>
-                                    <span class="nav-main-link-name">Elements</span>
+                                <a class="nav-main-link" href="{{ route('employe.index') }}">
+                                    <i class="nav-main-link-icon si si-energy"></i>
+                                    <span class="nav-main-link-name">Employe</span>
                                 </a>
-                                <ul class="nav-main-submenu">
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_grid.html">
-                                            <span class="nav-main-link-name">Grid</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_typography.html">
-                                            <span class="nav-main-link-name">Typography</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_icons.html">
-                                            <span class="nav-main-link-name">Icons</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_buttons.html">
-                                            <span class="nav-main-link-name">Buttons</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_buttons_groups.html">
-                                            <span class="nav-main-link-name">Button Groups</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_dropdowns.html">
-                                            <span class="nav-main-link-name">Dropdowns</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_tabs.html">
-                                            <span class="nav-main-link-name">Tabs</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_navigation.html">
-                                            <span class="nav-main-link-name">Navigation</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_navigation_horizontal.html">
-                                            <span class="nav-main-link-name">Horizontal Navigation</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_progress.html">
-                                            <span class="nav-main-link-name">Progress</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_alerts.html">
-                                            <span class="nav-main-link-name">Alerts</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_tooltips.html">
-                                            <span class="nav-main-link-name">Tooltips</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_popovers.html">
-                                            <span class="nav-main-link-name">Popovers</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_modals.html">
-                                            <span class="nav-main-link-name">Modals</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_images.html">
-                                            <span class="nav-main-link-name">Images Overlay</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_timeline.html">
-                                            <span class="nav-main-link-name">Timeline</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_ribbons.html">
-                                            <span class="nav-main-link-name">Ribbons</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_animations.html">
-                                            <span class="nav-main-link-name">Animations</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_ui_color_themes.html">
-                                            <span class="nav-main-link-name">Color Themes</span>
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -1034,5 +947,6 @@
         <!-- END Page Container -->
         <script src="/assets/js/oneui.core.min.js"></script>
         <script src="/assets/js/oneui.app.min.js"></script>
+        @yield("scripts")
     </body>
 </html>
