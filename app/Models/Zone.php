@@ -19,8 +19,8 @@ class Zone extends Model
         return $this->hasMany(Client::class);
     }
 
-    public function agents():HasMany{
-        return $this->hasMany(Agent::class);
+    public function employes():HasMany{
+        return $this->hasMany(Employe::class);
     }
 
     public function quartiers():HasMany{

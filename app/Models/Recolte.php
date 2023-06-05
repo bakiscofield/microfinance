@@ -13,8 +13,8 @@ class Recolte extends Model
         "date_recolte","montant","id_exercice","id_agent",
     ];
 
-    public function agent():BelongsTo{
-        return $this->belongsTo(Agent::class);
+    public function employe():BelongsTo{
+        return $this->belongsTo(Employe::class);
     }
 
     public function exercice():BelongsTo{

@@ -14,9 +14,13 @@ return new class extends Migration
         Schema::create('employes', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("user_id");
-            $table->foreign("user_id")->references("id")->on("users");
             $table->string("status");
+            $table->string("numero");
+            $table->bigInteger("id_zone");
+            $table->string("coordonnees");
             $table->timestamps();
+            $table->foreign("user_id")->references("id")->on("users");
+            $table->foreign("id_zone")->references("id")->on("zones");
         });
     }
 
