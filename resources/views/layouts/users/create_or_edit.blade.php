@@ -5,8 +5,14 @@
         <div class="block-content block-content-full">
             <div class="row">
                 <div class="col-lg-12">
-                    <form action="{{ route($route_name_prefix.'.store') }}" method="POST" onsubmit="">
+                    @php 
+                       $route = $user->id === null ? route($route_name_prefix.".store") : route($route_name_prefix.".update", $employe);
+                    @endphp
+                    <form action="{{ $route }}" method="POST" onsubmit="">
                         @csrf
+                        @if($user->id)
+                            @method("put")
+                        @endif
                         <div class="form-group form-row">
                             @include("components.input_field", ["label" => "nom", "name" => "nom", "value" => $user->nom,])
                             @include("components.input_field", ["label" => "prénom", "name" => "prenom", "value" => $user->prenom,])

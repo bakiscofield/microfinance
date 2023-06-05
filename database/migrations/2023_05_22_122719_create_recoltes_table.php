@@ -16,8 +16,8 @@ return new class extends Migration
             $table->date("date_recolte");
             $table->string("montant");
             $table->timestamps();
-            $table->bigInteger("id_agent");
-            $table -> foreign("id_agent")-> references("id")->on("agents");
+            $table->bigInteger("id_employe");
+            $table -> foreign("id_employe")-> references("id")->on("employes");
 
             $table->bigInteger("id_exercice");
             $table -> foreign("id_exercice")-> references("id")->on("exercices");
