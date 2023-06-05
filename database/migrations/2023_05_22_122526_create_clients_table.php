@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("user_id");
-            $table->bigInteger("id_zone")->nullable();
+            $table->bigInteger("zone_id")->nullable();
             $table->timestamps();
-            $table->foreign("user_id")->references("id")->on("users");
-            $table->foreign("id_zone")->references("id")->on("zones");
+            $table->foreign("user_id")->references("id")->on("users")->cascadeOnDelete();
+            $table->foreign("zone_id")->references("id")->on("zones")->nullOnDelete();
         });
     }
 

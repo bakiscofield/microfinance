@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Employe;
+use App\Models\User;
+use App\Models\Zone;
 
 class EmployeController extends Controller
 {
@@ -11,7 +14,10 @@ class EmployeController extends Controller
      */
     public function index()
     {
-        //
+        $employes = Employe::all();
+        return view("employes.index")->with([
+            "employes" => $employes,
+        ]);
     }
 
     /**
@@ -19,7 +25,30 @@ class EmployeController extends Controller
      */
     public function create()
     {
-        //
+        $zone = new Zone();
+        $zone->nom = "sokode ville";
+        //$zone->save();
+        $user = new User();
+        $user->nom = "Tamba";
+        $user->prenom = "dialo";
+        $user->date_naissance = "25/02/2002";
+        $user->contact = "12121212";
+        $user->profession = "chauffeur";
+        $user->pays = "togo";
+        $user->ville = "lome";
+        $user->adresse = "hghgff";
+        $user->carte = "bhbcfser";
+        $user->email = "fay@gmail.com";
+        $user->password = "123456789";
+        //$user->save();
+        $employe = new Employe();
+        $employe->user_id = $user->id;
+        $employe->id_zone = $zone->id;
+        $employe->numero = "12345678";
+        $employe->coordonnees = "x,y";
+        $employe->status = "agent";
+        //$employe->save();
+        return view("employes.create_or_edit", compact("employe", "user"));
     }
 
     /**
@@ -27,7 +56,18 @@ class EmployeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create($request->all());
+        $zone = Zone::create($request->all());
+        Employe::create([
+            "user_id" => $user->id,
+            "id_zone" => $zone->id,
+            "status" => "agent",
+            "coordonnees" => "x,y",
+            "numero" => "45454545",
+
+        ]);
+
+        return redirect()->route("employe.index");
     }
 
     /**
@@ -41,9 +81,10 @@ class EmployeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Employe $employe)
     {
-        //
+        $user = $employe->user;
+        return view("employes.create_or_edit", compact("employe", "user"));
     }
 
     /**

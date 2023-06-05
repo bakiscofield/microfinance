@@ -12,15 +12,16 @@ class Zone extends Model
     protected $fillable = [
         "id_client",
         "nom",
-
+        "description",
+        "agent_responsable",
     ];
 
     public function clients():HasMany{
         return $this->hasMany(Client::class);
     }
 
-    public function agents():HasMany{
-        return $this->hasMany(Agent::class);
+    public function employes():HasMany{
+        return $this->hasMany(Employe::class);
     }
 
     public function quartiers():HasMany{
