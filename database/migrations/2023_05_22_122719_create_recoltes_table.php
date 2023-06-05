@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger("id_exercice");
             $table->bigInteger("id_agent");
             $table->timestamps();
-            $table-> foreign("id_agent")-> references("id")->on("agents");
+            $table-> foreign("id_agent")-> references("id")->on("employes");
             $table -> foreign("id_exercice")-> references("id")->on("exercices");
         });
 

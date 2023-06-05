@@ -1,10 +1,10 @@
-@extends('layouts.base', ["title" => "Client", "description" => "Liste des clients."])
+@extends('layouts.base', ["title" => "Liste des clients", "description" => ""])
 @section('content')
     <div class="block block-rounded">
         <div class="block-header">
             <div>
                 <a href="" class="btn btn-outline-primary">
-                    <i class="fas fa-plus"></i> Exporter
+                    <i class="fa fa-2x fa-file-export"></i> Exporter
                 </a>
             </div>
             <a href="{{ route('client.create') }}" class="btn btn-outline-primary">
@@ -34,18 +34,23 @@
                         <td class="text-center d-none d-sm-table-cell font-size-sm">{{ $client->user->pays }}</td>
                         <td class="text-center d-none d-sm-table-cell font-size-sm">{{ $client->user->ville }}</td>
                         <td class="text-center"> 
-                            <button type="button" class="update-book btn btn-sm btn-success">
-                                <a style="color: blanchedalmond;" href="{% url 'main:edit_evaluation' evaluation.id %}">
-                                    <span><i class="far fa-eye fa-lg"></i></span>
-                            </button>                                        
-                            <button type="button" class="update-book btn btn-sm btn-warning">
-                                <a style="color: blanchedalmond;" href="{% url 'main:edit_evaluation' evaluation.id %}">
+                            <form action="{{ route('client.show', $client) }}" method="GET">
+                                <button type="submit" class="btn btn-sm btn-success">
+                                    <span><i class="far fa-eye fa-lg"></i></span>                                
+                                </button> 
+                            </form>      
+                            <form action="{{ route('client.edit', $client) }}" method="GET">
+                                <button type="submit" class="btn btn-sm btn-warning">
                                     <span><i class="far fa-edit fa-lg"></i></span>
-                            </button>  
-                            <button type="button" class="delete-evaluation btn btn-sm btn-danger">
-                                <a style="color: blanchedalmond;" href="{% url 'main:delete_evaluation' evaluation.id %}">
-                                    <span><i class="fa fa-fw fa-times mr-1"></i></span>
-                            </button>                                    
+                                </button> 
+                            </form>                                      
+                            <form action="{{ route('client.destroy', $client) }}" method="POST">
+                                @csrf
+                                @method("delete")
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                        <span><i class="fa fa-fw fa-times mr-1"></i></span>
+                                </button> 
+                            </form>                                 
                         </td> 
                     </tr>
                     @empty

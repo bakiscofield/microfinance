@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->bigInteger("user_id");
             $table->string("status");
-            $table->string("numero");
-            $table->bigInteger("id_zone");
-            $table->string("coordonnees");
+            $table->string("numero_service")->nullable();
+            $table->bigInteger("id_zone")->nullable();
+            $table->string("coordonnees")->nullable();
             $table->timestamps();
             $table->foreign("user_id")->references("id")->on("users");
             $table->foreign("id_zone")->references("id")->on("zones");

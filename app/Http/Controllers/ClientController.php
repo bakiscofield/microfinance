@@ -69,7 +69,8 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        $user = $client->user;
+        return view("clients.create_or_edit", compact("client", "user"));
     }
 
     /**
@@ -77,7 +78,8 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $client->user->update($request->all());
+        return redirect()->route("client.index");
     }
 
     /**
@@ -86,6 +88,6 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         $client->delete();
-        return "Client supprimé";
+        return redirect()->route("client.index");
     }
 }

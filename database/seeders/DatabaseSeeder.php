@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
+        User::factory(1000)->create();
         Zone::factory(10)->create();
 
-        $users = User::query()->limit(5)->get();
+        $users = User::query()->limit(500)->get();
         
 
         $users->each(function ($user){
@@ -30,17 +30,10 @@ class DatabaseSeeder extends Seeder
             ]);
         });
 
-        $users = User::latest()->limit(5)->get();
+        $users = User::latest()->limit(500)->get();
         $users->each(function ($user){
             Employe::factory()->create([
                 'user_id' => $user->id,
-            ]);
-        });
-        $employes = Employe::query()->limit(3)->get();
-        $employes->each(function ($employe){
-            Agent::factory()->create([
-                "id_employe" => $employe->id,
-                "id_zone" => Zone::query()->inRandomOrder()->first()->id,
             ]);
         });
     }
