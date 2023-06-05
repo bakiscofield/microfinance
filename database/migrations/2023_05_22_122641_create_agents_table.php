@@ -16,13 +16,10 @@ return new class extends Migration
             $table->string("numero");
             $table->string("coordonnees");
             $table->bigInteger("id_employe");
-            $table->foreign("id_employe")->references("id")->on("employes");
-
             $table->bigInteger("id_zone");
-            $table->foreign("id_zone")->references("id")->on("zones");
-
-
             $table->timestamps();
+            $table->foreign("id_employe")->references("id")->on("employes");
+            $table->foreign("id_zone")->references("id")->on("zones");
         });
     }
 

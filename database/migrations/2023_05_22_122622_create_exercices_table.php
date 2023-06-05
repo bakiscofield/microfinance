@@ -15,15 +15,8 @@ return new class extends Migration
             $table->id();
             $table->date("date_debut");
             $table->date("date_fin");
-            $table->string("montant_journalier");
-            $table->string("periode_recolte");
-            $table->string("solde_mois");
+            //$table->string("solde_mois"); Attribut calculé
             $table->timestamps();
-
-            $table->bigInteger("id_client");
-            $table->foreign("id_client")->references("id")->on("clients");
-
-
         });
     }
 
