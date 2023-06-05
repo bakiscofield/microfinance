@@ -12,7 +12,7 @@ class Agent extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "id","numero","coordonnees","id_employe","id_zone"
+        "id","numero_service","coordonnees","id_employe","id_zone"
     ];
 
     protected $primarykey = "id";
@@ -20,6 +20,7 @@ class Agent extends Model
     public function employe():HasOne{
         return $this->hasOne(Employe::class);
     }
+
     public function zone():BelongsTo{
         return $this->belongsTo(Zone::class);
     }

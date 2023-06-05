@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('agents', function (Blueprint $table) {
             $table->id();
-            $table->string("numero");
+            $table->string("numero_service");
             $table->string("coordonnees");
             $table->bigInteger("id_employe");
             $table->foreign("id_employe")->references("id")->on("employes");
-
             $table->bigInteger("id_zone");
             $table->foreign("id_zone")->references("id")->on("zones");
 

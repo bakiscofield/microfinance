@@ -12,7 +12,8 @@ class Zone extends Model
     protected $fillable = [
         "id_client",
         "nom",
-
+        "description",
+        "agent_responsable",
     ];
 
     public function clients():HasMany{
