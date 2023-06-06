@@ -31,13 +31,10 @@
                             @include("components.input_field", ["label" => "profession", "class" => "col-6", "name" => "profession", "value" => $user->profession,])
                             @include("components.input_field", ["label" => "carte", "class" => "col-6", "name" => "carte", "value" => $user->carte,])
                         </div>
+                        @if(! $user->id)
                         <div class="form-group form-row">
                             @include("components.input_field", ["label" => "mot de passe", "class" => "col-6", "name" => "password", "value" => "", "type" => "password",])
                             @include("components.input_field", ["label" => "comfirmer mot de passe", "class" => "col-6", "name" => "comfirm_password", "value" => "", "type" => "password",])
-                        </div>
-                        @if($user->id)
-                        <div class="form-group form-row">
-                            <input type="checkbox" class="" name="change_password" id="change_password">
                         </div>
                         @endif
                         @yield("children_content")
