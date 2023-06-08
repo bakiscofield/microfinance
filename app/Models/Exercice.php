@@ -11,11 +11,11 @@ class Exercice extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "date_debut","deate_fin","montant_journalier","periode_recolte","solde_mois","id_client","id_client",
+        "date_debut","date_fin",
     ];
 
-    public function client():BelongsTO{
-        return $this->belongsTo(Client::class);
+    public function clients():belongsToMany{
+        return $this->belongsToMany(ExerciceClient, "exercice_id", "client_id");
     }
 
     public function recoltes():HasMany{

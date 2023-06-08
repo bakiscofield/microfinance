@@ -2,7 +2,7 @@
     $label = $label ?? "";
     $type = $type ?? "text";
     $name = $name ?? "";
-    $class = $class ?? "col-4";
+    $class = $class ?? "col-5";
     $value = $value ?? "";
     $placeholder = $placeholder ?? "";
     $required = $required ?? "";
@@ -10,5 +10,5 @@
 @endphp
 <div class="text-capitalize {{ $class }}">
     <label>{{ $label }}</label>
-    <input type="{{ $type }}" name="{{ $name }}" value="{{ $value }}" class="form-control" placeholder="{{ $placeholder }}">
+    <input type="{{ $type }}" name="{{ $name }}" value="{{ $value }}" class="form-control" placeholder="{{ $placeholder }}" data-week-start="1" data-autoclose="true" data-today-highlight="true">
 </div>
