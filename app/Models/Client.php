@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 
 class Client extends Model
 {
@@ -23,7 +25,7 @@ class Client extends Model
         return $this->belongsTo(Zone::class);
     }
 
-    public function exercices():belongsToMany{
-        return $this->belongsToMany(ExerciceClient, "exercice_id", "client_id");
+    public function exercices():BelongsToMany{
+        return $this->belongsToMany(Exercice::class, "exercices_clients", "client_id", "exercice_id")->using(ExerciceClient::class);
     }
 }
