@@ -13,29 +13,23 @@
                         @if($exercice->id)
                             @method("put")
                         @endif
-                        <div class="input-daterange input-group form-row mb-4" data-date-format="mm/dd/yyyy" data-week-start="1" data-autoclose="true" data-today-highlight="true">
-                            @include("components.date_field", ["label" => "date début", "name" => "date_debut", "value" => $exercice->date_debut,])
-                            <div class="input-group-prepend input-group-append mt-4 col-2">
-                                <span class="input-group-text font-w600">
-                                    <i class="fa fa-fw fa-arrow-right"></i>
-                                </span>
-                            </div>
-                            @include("components.date_field", ["label" => "date fin", "name" => "date_fin", "value" => $exercice->date_fin,])
+                        <div class="form-group form-row col-12">
+                            @include("components.date_range_field", ["label" => "Interval de date", "name" => "date_debut",  "name2" => "date_fin", "value" => $exercice->date_debut, "value2" => $exercice->date_fin,])
                         </div>
-                        <div>
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <label for="">Client</label>
+                        <div class="form-group form-row col-md-12">
+                            <div class="form-group col-md-12">
+                                <label for="">Client</label>
+                                <div class="custom-control custom-switch mb-1">
+                                    <input type="checkbox" class="custom-control-input" id="clients" name="all_clients" checked>
+                                    <label class="custom-control-label" for="all_clients">Tous les clients</label>
                                 </div>
-                                <div class="col-lg-8 col-xl-5">
-                                    <div class="form-group">
-                                        <select class="js-select2 form-control" id="example-select2-multiple" name="example-select2-multiple" style="width: 100%;" data-placeholder="Choose many.." multiple>
-                                            <option value=""></option>
-                                            @foreach($clients as $client)
-                                                <option value="{{ $client->id }}">{{ $client->user->fullName }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                <div>
+                                    <select class="js-select2 form-control" id="clients" name="clients" style="width: 100%;" data-placeholder="Choose many.." multiple>
+                                        <option value=""></option>
+                                        @foreach($clients as $client)
+                                            <option value="{{ $client->id }}">{{ $client->user->fullName }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -46,4 +40,13 @@
         </div>
     </div>
 </div>
+@endsection
+@section("scripts")
+<script>
+    /*let  all_client = document.querySelector("#all_clients");
+    all_client.addEventListener("click", function(){
+
+    });*/
+
+</script>
 @endsection

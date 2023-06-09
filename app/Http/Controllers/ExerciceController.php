@@ -35,7 +35,8 @@ class ExerciceController extends Controller
      */
     public function store(Request $request)
     {
-        Exercice::create($request->all());
+        $exercice = Exercice::create($request->all());
+        $exercice->clients()->attach(Client::all());
         return redirect()->route("exercice.index");
     }
 
