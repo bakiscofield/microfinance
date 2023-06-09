@@ -23,7 +23,7 @@ class Client extends Model
         return $this->belongsTo(Zone::class);
     }
 
-    public function exercices() :HasMany{
-        return $this->hasMany(Exercice::class);
+    public function exercices():belongsToMany{
+        return $this->belongsToMany(ExerciceClient, "exercice_id", "client_id");
     }
 }
