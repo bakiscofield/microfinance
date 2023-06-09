@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\User;
+use App\Http\Requests\StoreUserRequest;
 
 class ClientController extends Controller
 {
@@ -45,7 +46,7 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
         $user = User::create($request->all());
 
@@ -76,7 +77,7 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Client $client)
+    public function update(StoreUserRequest $request, Client $client)
     {
         $client->user->update($request->all());
         return redirect()->route("client.index");

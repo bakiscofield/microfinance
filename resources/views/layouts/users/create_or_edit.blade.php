@@ -34,7 +34,7 @@
                         @if(! $user->id)
                         <div class="form-group form-row">
                             @include("components.input_field", ["label" => "mot de passe", "class" => "col-6", "name" => "password", "value" => "", "type" => "password",])
-                            @include("components.input_field", ["label" => "comfirmer mot de passe", "class" => "col-6", "name" => "comfirm_password", "value" => "", "type" => "password",])
+                            @include("components.input_field", ["label" => "comfirmer mot de passe", "class" => "col-6", "name" => "password_confirmation", "value" => "", "type" => "password",])
                         </div>
                         @endif
                         @yield("children_content")
