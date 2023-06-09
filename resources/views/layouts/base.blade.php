@@ -577,6 +577,10 @@
                                     <i class="nav-main-link-icon si si-energy"></i>
                                     <span class="nav-main-link-name">Exercices</span>
                                 </a>
+                                <a class="nav-main-link" href="{{ route('recolte.index') }}">
+                                    <i class="nav-main-link-icon si si-energy"></i>
+                                    <span class="nav-main-link-name">Récoltes</span>
+                                </a>
                             </li>
                             <li class="nav-main-heading">Paramètre généraux</li>
                             <li class="nav-main-item">

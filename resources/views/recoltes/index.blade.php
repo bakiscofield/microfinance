@@ -1,4 +1,4 @@
-@extends('layouts.base', ["title" => "Exercice", "description" => "Liste des clients."])
+@extends('layouts.base', ["title" => "Récolte", "description" => "Liste des récolte."])
 @section('content')
     <div class="block block-rounded">
         <div class="block-header">
@@ -7,7 +7,7 @@
                     <i class="fas fa-plus"></i> Exporter
                 </a>
             </div>
-            <a href="{{ route('exercice.create') }}" class="btn btn-outline-primary">
+            <a href="{{ route('recolte.create') }}" class="btn btn-outline-primary">
                 <i class="fas fa-plus"></i> Ajout
             </a>
         </div>
@@ -16,19 +16,21 @@
                 <thead>
                     <tr>
                         <th class="text-center" style="width: 80px;">Id</th>
-                        <th class="d-none d-sm-table-cell text-center" >Date debut</th>
-                        <th class="d-none d-sm-table-cell text-center" >Date Fin</th>
-                        <th class="d-none d-sm-table-cell text-center" style="width: 30%;">Solde</th>
-                        <th style="width: 15%;">Actions</th>
+                        <th class="d-none d-sm-table-cell text-center" >Client</th>
+                        <th class="d-none d-sm-table-cell text-center" >Agent</th>
+                        <th class="d-none d-sm-table-cell text-center" >Date</th>
+                        <th class="d-none d-sm-table-cell text-center" >Montant</th>
+                        <th style="width: 45%;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($exercices as $exercice)
+                    @forelse ($recoltes as $recolte)
                     <tr>
-                        <td class="text-center font-size-sm"> {{ "EX".$exercice->id }} </td>
-                        <td class="text-center font-size-sm text-uppercase"> {{ $exercice->date_debut }} </td>
-                        <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $exercice->date_fin }}</td>
-                        <td class="d-none d-sm-table-cell text-center text-capitalize">{{ "Solde" }}</td>
+                        <td class="text-center font-size-sm"> {{ "REC".$recolte->id }} </td>
+                        <td class="text-center font-size-sm text-uppercase"> {{ $recolte->exercice->client }} </td>
+                        <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $recolte->agent }}</td>
+                        <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $recolte->date }}</td>
+                        <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $recolte->montant }}</td>
                         <td class="text-center"> 
                             <button type="submit" class="update-book btn btn-sm btn-success">
                                 <a style="color: blanchedalmond;" href="">
@@ -54,7 +56,7 @@
                     </tr>
                     @empty
                         <div class="my-auto">
-                            <h3 class="text-center">Aucun Exercice.</h3>
+                            <h3 class="text-center">Aucune récolte.</h3>
                         </div>
                     @endforelse
                 </tbody>

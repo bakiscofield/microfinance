@@ -53,7 +53,9 @@ class ExerciceController extends Controller
      */
     public function edit(Exercice $exercice)
     {
-        return view("exercices.create_or_edit");
+        //dd("OKAY");
+        $clients = Client::all();
+        return view("exercices.create_or_edit", compact("exercice", "clients"));
     }
 
     /**
