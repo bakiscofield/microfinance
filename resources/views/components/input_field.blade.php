@@ -10,5 +10,8 @@
 @endphp
 <div class="text-capitalize {{ $class }}">
     <label>{{ $label }}</label>
-    <input type="{{ $type }}" name="{{ $name }}" value="{{ $value }}" class="form-control" placeholder="{{ $placeholder }}">
+    <input type="{{ $type }}" name="{{ $name }}" value="{{ $value }}" class="form-control @error($name) is-invalid @enderror" placeholder="{{ $placeholder }}">
+    @error($name)
+    <span class="alert text-danger">{{ $message }}</span>
+    @enderror
 </div>
