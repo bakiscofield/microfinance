@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('recoltes', function (Blueprint $table) {
             $table->id();
-            $table->date("date_recolte");
+            $table->date("date_recolte")->default("now");
             $table->string("montant");
             $table->bigInteger("id_exercice");
             $table->bigInteger("id_agent");

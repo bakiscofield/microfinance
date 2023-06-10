@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Recolte;
 use App\Models\Client;
-
+use App\Models\Exercice;
+use App\Models\Employe;
 
 class RecolteController extends Controller
 {
@@ -26,7 +27,7 @@ class RecolteController extends Controller
      */
     public function create()
     {
-        return view("recoltes.create_or_edit")->with(["recolte"=> new Recolte(),"clients" => Client::all()]);
+        return view("recoltes.create_or_edit")->with(["recolte"=> new Recolte(),"clients" => Client::all(), "exercices" => Exercice::all(),]);
     }
 
     /**
@@ -34,7 +35,10 @@ class RecolteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request["id_exercice"] = $request['exercice'];
+        $request["id_agent"] = Employe::all()->first()->id;
+        Recolte::create($request->all());   
+        return redirect()->route("recolte.index");
     }
 
     /**
