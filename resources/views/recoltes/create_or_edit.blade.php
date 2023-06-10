@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="client">Client</label>
-                                <select name="client" id="client" class="form-control mb-4">
+                                <select name="id_client" id="client" class="form-control mb-4">
                                     <option value="">Séléctionner un client</option>
                                     @foreach($clients as $client)
                                     <option value="{{ $client->id }}">{{ $client->user->fullName }}</option>
@@ -46,8 +46,8 @@
                                 <label for="client">Jour de cotisation</label>
                                 <select name="client" id="client" class="form-control mb-4">
                                     <option value="">Séléctionner un jour</option>
-                                    @foreach($clients as $client)
-                                    <option value="{{ $client->id }}">{{ $client->user->fullName }}</option>
+                                    @foreach($jours as $jour)
+                                    <option value="{{ $loop->index-1 }}">{{ $jour }}</option>
                                     @endforeach
                                 </select>
                             </div>

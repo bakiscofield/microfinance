@@ -15,6 +15,7 @@ class RecolteController extends Controller
      */
     public function index()
     {
+        //dd(Recolte::all());
         return view("recoltes.index")->with(
             [
             "recoltes" => Recolte::all(),
@@ -27,14 +28,22 @@ class RecolteController extends Controller
      */
     public function create()
     {
-        return view("recoltes.create_or_edit")->with(["recolte"=> new Recolte(),"clients" => Client::all(), "exercices" => Exercice::all(),]);
+        //ExerciceClientController::getCurrentExerciceInformationByClient(Client::all()->first(), Exercice::all()->first());
+        return view("recoltes.create_or_edit")->with([
+            "recolte"=> new Recolte(),
+            "clients" => Client::all(), 
+            "exercices" => Exercice::all(),
+            "jours" => ["1" => "lundi", "2" => "mardi", "3" => "mercredi", "4" => "jeudi", "5" => "vendredi",]
+        ]);
     }
+    
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
+        //dd($request['exercice']);
         $request["id_exercice"] = $request['exercice'];
         $request["id_agent"] = Employe::all()->first()->id;
         Recolte::create($request->all());   

@@ -10,14 +10,10 @@ class Recolte extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "date_recolte","montant","id_exercice","id_agent",
+        "date_recolte","montant",
     ];
 
-    public function employe():BelongsTo{
-        return $this->belongsTo(Employe::class);
-    }
-
-    public function exercice():BelongsTo{
-        return $this->belongsTo(Exercice::class);
+    public function exercice_clients():HasMany{
+        return $this->hasMany(ExerciceClient::class);
     }
 }

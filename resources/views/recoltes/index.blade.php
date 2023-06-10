@@ -27,8 +27,8 @@
                     @forelse ($recoltes as $recolte)
                     <tr>
                         <td class="text-center font-size-sm"> {{ "REC".$recolte->id }} </td>
-                        <td class="text-center font-size-sm text-uppercase"> {{ $recolte->exercice->client }} </td>
-                        <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $recolte->agent }}</td>
+                        <td class="text-center font-size-sm text-uppercase"> {{ $recolte->client }} </td>
+                        <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $recolte->employe }}</td>
                         <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $recolte->date }}</td>
                         <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $recolte->montant }}</td>
                         <td class="text-center"> 
@@ -36,7 +36,7 @@
                                 <a style="color: blanchedalmond;" href="">
                                     <span><i class="far fa-eye fa-lg"></i></span>
                             </button>   
-                            <form action="{{ route("exercice.edit", $exercice) }}" method="GET">
+                            <form action="" method="GET">
                                 @csrf
                                 @method("GET")                                     
                                 <button type="submit" class="update-book btn btn-sm btn-warning">
@@ -44,7 +44,7 @@
                                         <span><i class="far fa-edit fa-lg"></i></span>
                                 </button>  
                             <form>
-                            <form action="{{ route("exercice.destroy", $exercice) }}" method="post">
+                            <form action="" method="post">
                                 @csrf
                                 @method("DELETE")
                                 <button type="submit" class="delete-evaluation btn btn-sm btn-danger" id="delete_instance">

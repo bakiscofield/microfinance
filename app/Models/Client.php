@@ -28,4 +28,6 @@ class Client extends Model
     public function exercices():BelongsToMany{
         return $this->belongsToMany(Exercice::class, "exercices_clients", "client_id", "exercice_id")->using(ExerciceClient::class);
     }
+    
+    #public function nom
 }

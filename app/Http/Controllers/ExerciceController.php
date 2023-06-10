@@ -9,6 +9,7 @@ use App\Models\Client;
 
 class ExerciceController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
