@@ -9,7 +9,12 @@ class ExerciceClient extends Pivot
 {
     use HasFactory;
     protected $fillable = [
-        "montant_journalier","periode_recolte",
+        "montant_journalier","periode_recolte", "recolte_id",
     ];
-    protected $primary_key = ["id_exercice", "id_client"];
+    protected $primary_key = ["exercice_id", "client_id"];
+    protected $table = "exercices_clients";
+
+    public function recolte() :BelongsTo{
+        return $this->belongsTo(Recolte::class);
+    }
 }

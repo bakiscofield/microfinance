@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\ExerciceController;
+use App\Http\Controllers\RecolteController;
 use App\Models\User;
 use App\Models\Client;
 use App\Models\Employe;
@@ -47,4 +48,4 @@ Route::put('employe/mis_a_jours/{employe}', [EmployeController::class, 'update']
 Route::get('employe/{employe}', [EmployeController::class, 'show'])->name("employe.show");
 Route::delete('employe/{employe}', [EmployeController::class, 'destroy'])->name("employe.destroy");
 
-//Route::resource('employe', EmployeController::class);
+Route::resource('recolte', RecolteController::class);
