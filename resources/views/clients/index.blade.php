@@ -48,7 +48,7 @@
                                 @csrf
                                 @method("delete")
                                 <button type="submit" class="btn btn-sm btn-danger">
-                                        <span><i class="fa fa-fw fa-times mr-1"></i></span>
+                                    <span><i class="fa fa-fw fa-times mr-1"></i></span>
                                 </button> 
                             </form>                                 
                         </td> 
