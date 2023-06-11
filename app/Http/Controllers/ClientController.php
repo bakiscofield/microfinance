@@ -26,17 +26,17 @@ class ClientController extends Controller
     public function create()
     {
         $user = new User();
-        $user->nom = "Tamba";
-        $user->prenom = "dialo";
-        $user->date_naissance = "25/02/2002";
-        $user->contact = "12121212";
-        $user->profession = "chauffeur";
-        $user->pays = "togo";
-        $user->ville = "lome";
-        $user->adresse = "hghgff";
-        $user->carte = "bhbcfser";
-        $user->email = "fay@gmail.com";
-        $user->password = "123456789";
+        // $user->nom = "Tamba";
+        // $user->prenom = "dialo";
+        // $user->date_naissance = "25/02/2002";
+        // $user->contact = "12121212";
+        // $user->profession = "chauffeur";
+        // $user->pays = "togo";
+        // $user->ville = "lome";
+        // $user->adresse = "hghgff";
+        // $user->carte = "bhbcfser";
+        // $user->email = "fay@gmail.com";
+        // $user->password = "123456789";
         $client = new Client();
         $client->user_id = $user->id;
         return view("clients.create_or_edit", compact("client", "user"));
