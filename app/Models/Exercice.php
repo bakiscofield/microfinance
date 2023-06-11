@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Carbon\Carbon;
 
 class Exercice extends Model
 {
@@ -14,13 +15,19 @@ class Exercice extends Model
         "date_debut","date_fin",
     ];
 
-    public function clients():BelongsToMany{
-        return $this->belongsToMany(Client::class, "exercices_clients", "exercice_id", "client_id")->using(ExerciceClient::class);
+    protected $casts = [
+        "date_debut" => "date:d/m/Y H:i:s",
+        "date_fin" => "date:d/m/Y H:i:s",
+    ];
+
+    public function isCurrent(): Bool{
+        return Carbon::createFromFormat("d/m/Y H:i:s", $this->date_fin)->gte(Carbon::now());
     }
 
-    public function recoltes():HasMany{
-        return $this->hasMany(Recolte::class);
+    public function exercice_clients():HasMany{
+        return $this->hasMany(ExerciceClient::class);
     }
 
+    
    
 }

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Exercice;
+use App\Models\ExerciceClient;
 use App\Models\Client;
 
 
 class ExerciceController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -35,8 +37,19 @@ class ExerciceController extends Controller
      */
     public function store(Request $request)
     {
+        $date_range = $request->input('date_debut');
+        //dd($date_range);
+        $liste = explode(" ",$date_range);
+        
+        $request['date_debut'] = $liste[0];
+        $request['date_fin'] = $liste[2];
         $exercice = Exercice::create($request->all());
-        $exercice->clients()->attach(Client::all());
+        foreach(Client::all() as $client){
+            ExerciceClient::create([
+                "exercice_id" => $exercice->id,
+                "client_id" => $client->id,
+            ]);
+        }
         return redirect()->route("exercice.index");
     }
 
@@ -53,7 +66,9 @@ class ExerciceController extends Controller
      */
     public function edit(Exercice $exercice)
     {
-        return view("exercices.create_or_edit");
+        //dd("OKAY");
+        $clients = Client::all();
+        return view("exercices.create_or_edit", compact("exercice", "clients"));
     }
 
     /**
