@@ -27,7 +27,12 @@
         <link rel="stylesheet" id="css-main" href="/assets/css/oneui.min.css">
         <link rel="stylesheet" href="/assets/js/plugins/datatables/dataTables.bootstrap4.css">
         <link rel="stylesheet" href="/assets/js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css">
-
+        <link rel="stylesheet" href="/assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+        <link rel="stylesheet" href="/assets/js/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+        <link rel="stylesheet" href="/assets/js/plugins/select2/css/select2.min.css">
+        <link rel="stylesheet" href="/assets/js/plugins/ion-rangeslider/css/ion.rangeSlider.css">
+        <link rel="stylesheet" href="/assets/js/plugins/dropzone/dist/min/dropzone.min.css">
+        <link rel="stylesheet" href="/assets/js/plugins/flatpickr/flatpickr.min.css">
     </head>
     <body>
         <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow">
@@ -573,39 +578,6 @@
                                     <span class="nav-main-link-name">Exercices</span>
                                 </a>
                             </li>
-                            <!--li class="nav-main-item">
-                                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                    <i class="nav-main-link-icon si si-energy"></i>
-                                    <span class="nav-main-link-name">Blocks</span>
-                                </a>
-                                <ul class="nav-main-submenu">
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_blocks_styles.html">
-                                            <span class="nav-main-link-name">Styles</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_blocks_options.html">
-                                            <span class="nav-main-link-name">Options</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_blocks_forms.html">
-                                            <span class="nav-main-link-name">Forms</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_blocks_themed.html">
-                                            <span class="nav-main-link-name">Themed</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_blocks_api.html">
-                                            <span class="nav-main-link-name">API</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li-->
                             <li class="nav-main-heading">Paramètre généraux</li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="{{ route('employe.index') }}">
@@ -838,7 +810,7 @@
 
             <!-- Main Container -->
             <main id="main-container">
-            <div class="bg-body-light">
+                <div class="bg-body-light">
                     <div class="content content-full">
                         <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
                             <h1 class="flex-sm-fill h3 my-2">
@@ -950,6 +922,28 @@
         <script src="/assets/js/plugins/datatables/buttons/buttons.flash.min.js"></script>
         <script src="/assets/js/plugins/datatables/buttons/buttons.colVis.min.js"></script>
         <script src="/assets/js/pages/be_tables_datatables.min.js"></script>
+        <script src="/assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <script src="/assets/js/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+        <script src="/assets/js/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+        <script src="/assets/js/plugins/select2/js/select2.full.min.js"></script>
+        <script src="/assets/js/plugins/jquery.maskedinput/jquery.maskedinput.min.js"></script>
+        <script src="/assets/js/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+        <script src="/assets/js/plugins/dropzone/dropzone.min.js"></script>
+        <script src="/assets/js/plugins/flatpickr/flatpickr.min.js"></script>
+
+        <!-- Page JS Helpers (Flatpickr + BS Datepicker + BS Colorpicker + BS Maxlength + Select2 + Masked Inputs + Ion Range Slider plugins) -->
+        <script>jQuery(function () { One.helpers(['flatpickr', 'datepicker', 'colorpicker', 'maxlength', 'select2', 'masked-inputs', 'rangeslider']);  });</script>
+        <script>
+            let button_delete = document.querySelector("#delete_instance");
+            console.log(button_delete);
+            button_delete.addEventListener("click", function(){
+                confirm = confirm();
+                if (! confirm){
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            });
+        </script>
         @yield("scripts")
     </body>
 </html>

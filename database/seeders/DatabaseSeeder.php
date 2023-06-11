@@ -17,7 +17,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+<<<<<<< HEAD
       /*  User::factory(500)->create();
+=======
+        User::factory(500)->create();
+>>>>>>> 7e3ac140a583b46702e38a5d08f3c7ab4458544e
         Zone::factory(10)->create();
 
         $users = User::query()->limit(250)->get();

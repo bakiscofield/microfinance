@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('exercices_clients', function (Blueprint $table) {
             $table->integer("exercice_id");
             $table->integer("client_id");
-            $table->string("montant_journalier");
-            $table->string("periode_recolte");
+            $table->integer("montant_journalier")->default(200);
+            $table->integer("periode_recolte")->default(0);
             //$table->string("solde_mois"); Attribut calculé
-            $table->timestamps();
+            $table->timestamps()->default("now");
             $table->foreign("exercice_id")->references("id")->on("exercices");
             $table->foreign("client_id")->references("id")->on("clients");
             $table->primary(["exercice_id", "client_id"]);

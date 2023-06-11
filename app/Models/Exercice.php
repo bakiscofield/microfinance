@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Exercice extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "date_debut","deate_fin","montant_journalier","periode_recolte","solde_mois","id_client","id_client",
+        "date_debut","date_fin",
     ];
 
-    public function client():BelongsTO{
-        return $this->belongsTo(Client::class);
+    public function clients():BelongsToMany{
+        return $this->belongsToMany(Client::class, "exercices_clients", "exercice_id", "client_id")->using(ExerciceClient::class);
     }
 
     public function recoltes():HasMany{

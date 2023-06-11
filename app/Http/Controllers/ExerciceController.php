@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Exercice;
+use App\Models\Client;
+
 
 class ExerciceController extends Controller
 {
@@ -12,7 +14,7 @@ class ExerciceController extends Controller
      */
     public function index()
     {
-        return view("exercices.index");
+        return view("exercices.index")->with(["exercices"=>Exercice::all()]);
     }
 
     /**
@@ -20,7 +22,12 @@ class ExerciceController extends Controller
      */
     public function create()
     {
-        //
+        return view("exercices.create_or_edit")->with(
+            [
+                "exercice" => new Exercice(),
+                "clients" => Client::all(),
+            ]
+        );
     }
 
     /**
@@ -28,6 +35,8 @@ class ExerciceController extends Controller
      */
     public function store(Request $request)
     {
+        $exercice = Exercice::create($request->all());
+        $exercice->clients()->attach(Client::all());
         return redirect()->route("exercice.index");
     }
 
@@ -36,7 +45,7 @@ class ExerciceController extends Controller
      */
     public function show(Exercice $exercice)
     {
-        //
+        return view("exercice.index");
     }
 
     /**
@@ -44,7 +53,7 @@ class ExerciceController extends Controller
      */
     public function edit(Exercice $exercice)
     {
-        //
+        return view("exercices.create_or_edit");
     }
 
     /**

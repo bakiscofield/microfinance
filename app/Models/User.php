@@ -51,6 +51,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function getFullNameAttribute(){
+        return $this->nom." ".$this->prenom;
+    }
 
     public function client():HasOne{
         return $this->hasOne(Client::class);
