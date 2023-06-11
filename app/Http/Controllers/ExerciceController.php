@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Exercice;
+use App\Models\ExerciceClient;
 use App\Models\Client;
 
 
@@ -37,7 +38,12 @@ class ExerciceController extends Controller
     public function store(Request $request)
     {
         $exercice = Exercice::create($request->all());
-        $exercice->clients()->attach(Client::all());
+        foreach(Client::all() as $client){
+            ExerciceClient::create([
+                "exercice_id" => $exercice->id,
+                "client_id" => $client->id,
+            ]);
+        }
         return redirect()->route("exercice.index");
     }
 

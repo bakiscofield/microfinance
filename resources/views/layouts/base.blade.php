@@ -575,7 +575,11 @@
                                 </a>
                                 <a class="nav-main-link" href="{{ route('exercice.index') }}">
                                     <i class="nav-main-link-icon si si-energy"></i>
-                                    <span class="nav-main-link-name">Exercices</span>
+                                    <span class="nav-main-link-name">Tontines</span>
+                                </a>
+                                <a class="nav-main-link" href="{{ route('exercices_clients.index') }}">
+                                    <i class="nav-main-link-icon si si-energy"></i>
+                                    <span class="nav-main-link-name">Tontines clients</span>
                                 </a>
                                 <a class="nav-main-link" href="{{ route('recolte.index') }}">
                                     <i class="nav-main-link-icon si si-energy"></i>
@@ -586,7 +590,7 @@
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="{{ route('employe.index') }}">
                                     <i class="nav-main-link-icon si si-energy"></i>
-                                    <span class="nav-main-link-name">Employe</span>
+                                    <span class="nav-main-link-name">Employes</span>
                                 </a>
                             </li>
                         </ul>

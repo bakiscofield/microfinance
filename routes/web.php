@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\ExerciceController;
 use App\Http\Controllers\RecolteController;
+use App\Http\Controllers\ExerciceClientController;
 use App\Models\User;
 use App\Models\Client;
 use App\Models\Employe;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +24,15 @@ use App\Models\Employe;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+
+});
 //client's routes
 Route::get('client/list', [ClientController::class, 'index'])->name("client.index");
 Route::get('client/formulaire/creation', [ClientController::class, 'create'])->name("client.create");
@@ -48,4 +59,11 @@ Route::put('employe/mis_a_jours/{employe}', [EmployeController::class, 'update']
 Route::get('employe/{employe}', [EmployeController::class, 'show'])->name("employe.show");
 Route::delete('employe/{employe}', [EmployeController::class, 'destroy'])->name("employe.destroy");
 
+// Récolte routes
+Route::get('recoltes/formulaire/creation/{exerciceClient}', [RecolteController::class, 'create_recolte_client'])->name("recolte_client.create");
+Route::get('client/current_tontine_info/{client}', [ExerciceClientController::class, 'getCurrentExerciceInformationByClient'])->name("client_info.get");
+
 Route::resource('recolte', RecolteController::class);
+Route::resource('exercices_clients', ExerciceClientController::class);
+
+require __DIR__.'/auth.php';

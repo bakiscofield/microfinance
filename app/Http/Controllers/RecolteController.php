@@ -7,6 +7,8 @@ use App\Models\Recolte;
 use App\Models\Client;
 use App\Models\Exercice;
 use App\Models\Employe;
+use App\Models\ExerciceClient;
+
 
 class RecolteController extends Controller
 {
@@ -23,18 +25,24 @@ class RecolteController extends Controller
         );
     }
 
+    public function create_recolte_client(Request $request, ExerciceClient $exerciceClient)
+    {
+        return view("recoltes.create_or_edit")->with([
+            "recolte"=> new Recolte(),
+            "clients" => Client::all(), 
+            "exerciceClient" => $exerciceClient,
+            "exercices" => Exercice::all(),
+            "recoltes_client" => [],
+            "jours" => ["1" => "lundi", "2" => "mardi", "3" => "mercredi", "4" => "jeudi", "5" => "vendredi",]
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //ExerciceClientController::getCurrentExerciceInformationByClient(Client::all()->first(), Exercice::all()->first());
-        return view("recoltes.create_or_edit")->with([
-            "recolte"=> new Recolte(),
-            "clients" => Client::all(), 
-            "exercices" => Exercice::all(),
-            "jours" => ["1" => "lundi", "2" => "mardi", "3" => "mercredi", "4" => "jeudi", "5" => "vendredi",]
-        ]);
+        
     }
     
 
@@ -43,9 +51,7 @@ class RecolteController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request['exercice']);
-        $request["id_exercice"] = $request['exercice'];
-        $request["id_agent"] = Employe::all()->first()->id;
+        $request["exercice_client_id"] = Client::find($request->id_client)->getCurrentExerciceClient();
         Recolte::create($request->all());   
         return redirect()->route("recolte.index");
     }
