@@ -20,8 +20,17 @@ class Exercice extends Model
         "date_fin" => "date:d/m/Y H:i:s",
     ];
 
+    public static function currentExercice(){
+        foreach(Exercice::all() as $exercice){
+            if ($exercice->isCurrent()){
+                return $exercice;
+            }
+        }
+        return null;
+    }
+    
     public function isCurrent(): Bool{
-        return Carbon::createFromFormat("d/m/Y H:i:s", $this->date_fin)->gte(Carbon::now());
+        return $this->date_fin->gte(Carbon::now());
     }
 
     public function exercice_clients():HasMany{

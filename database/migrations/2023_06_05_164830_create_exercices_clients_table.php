@@ -19,8 +19,8 @@ return new class extends Migration
             $table->integer("jour_recolte")->default(0);
             //$table->string("solde_mois"); Attribut calculé
             $table->timestamps();
-            $table->foreign("exercice_id")->references("id")->on("exercices");
-            $table->foreign("client_id")->references("id")->on("clients");
+            $table->foreign("exercice_id")->references("id")->on("exercices")->cascadeOnDelete();
+            $table->foreign("client_id")->references("id")->on("clients")->cascadeOnDelete();
             //$table->primary(["exercice_id", "client_id"]);
         });
     }

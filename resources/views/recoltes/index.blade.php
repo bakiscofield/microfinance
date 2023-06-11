@@ -27,15 +27,11 @@
                     @forelse ($recoltes as $recolte)
                     <tr>
                         <td class="text-center font-size-sm"> {{ "REC".$recolte->id }} </td>
-                        <td class="text-center font-size-sm text-uppercase"> {{ $recolte->client }} </td>
+                        <td class="text-center font-size-sm text-uppercase"> {{ $recolte->exercice_client->client->user->fullName }} </td>
                         <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $recolte->employe }}</td>
-                        <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $recolte->date }}</td>
+                        <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $recolte->created_at }}</td>
                         <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $recolte->montant }}</td>
-                        <td class="text-center"> 
-                            <button type="submit" class="update-book btn btn-sm btn-success">
-                                <a style="color: blanchedalmond;" href="">
-                                    <span><i class="far fa-eye fa-lg"></i></span>
-                            </button>   
+                        <td class="text-center">  
                             <form action="" method="GET">
                                 @csrf
                                 @method("GET")                                     

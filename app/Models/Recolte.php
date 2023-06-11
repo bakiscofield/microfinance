@@ -13,7 +13,7 @@ class Recolte extends Model
         "date_recolte","montant", "exercice_client_id"
     ];
 
-    public function exercice_clients():BelongsTo{
+    public function exercice_client():BelongsTo{
         return $this->belongsTo(ExerciceClient::class);
     }
 }

@@ -3,8 +3,8 @@
 <div class="content">
     <div class="block block-rounded">
         <div class="block-header">
-            <h4 class="text-uppercase">Date : </h4>
-            <h4 class="text-uppercase">Jour : Lundi</h4>
+            <h4 class="text-uppercase">Exercice du moi de {{ $mounth ?? "" }} </h4>
+            <h4 class="text-uppercase">Date : {{ $to_day }} </h4>
         </div>
         <div class="block-content block-content-full">
             <div class="row">
@@ -17,15 +17,6 @@
                         @if($recolte->id)
                             @method("put")
                         @endif
-                        <div class="col-md-12">
-                            <label for="exercice">Exercice</label>
-                            <select name="exercice" id="exercice" class="form-control mb-4">
-                                <option value="">Séléctionner un exercice</option>
-                                @foreach($exercices as $exercice)
-                                <option value="{{ $exercice->id }}">{{ $exercice->id }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="form-row col-md-12">
                             <div class="col-md-2 mt-4">
                                 <div class="custom-control custom-switch custom-control-inline">
@@ -69,10 +60,6 @@
 @endsection
 @section("scripts")
 <script>
-    /*let  all_client = document.querySelector("#all_clients");
-    all_client.addEventListener("click", function(){
-
-    });*/
     let client_tag = document.querySelector("#client");
     console.log(client_tag);
     client_tag.addEventListener("change", function(){
