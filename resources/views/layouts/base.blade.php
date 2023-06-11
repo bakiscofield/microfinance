@@ -933,7 +933,7 @@
 
         <!-- Page JS Helpers (Flatpickr + BS Datepicker + BS Colorpicker + BS Maxlength + Select2 + Masked Inputs + Ion Range Slider plugins) -->
         <script>jQuery(function () { One.helpers(['flatpickr', 'datepicker', 'colorpicker', 'maxlength', 'select2', 'masked-inputs', 'rangeslider']);  });</script>
-        <script>
+        <!--script>
             let button_delete = document.querySelector("#delete_instance");
             console.log(button_delete);
             button_delete.addEventListener("click", function(){
@@ -943,7 +943,7 @@
                     event.stopPropagation();
                 }
             });
-        </script>
+        </script-->
         @yield("scripts")
     </body>
 </html>

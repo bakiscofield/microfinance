@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer("montant_journalier")->default(200);
             $table->integer("periode_recolte")->default(0);
             //$table->string("solde_mois"); Attribut calculé
-            $table->timestamps()->default("now");
+            $table->timestamps();
             $table->foreign("exercice_id")->references("id")->on("exercices");
             $table->foreign("client_id")->references("id")->on("clients");
             $table->primary(["exercice_id", "client_id"]);
