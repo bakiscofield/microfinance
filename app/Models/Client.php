@@ -25,9 +25,35 @@ class Client extends Model
         return $this->belongsTo(Zone::class);
     }
 
-    public function exercices():BelongsToMany{
-        return $this->belongsToMany(Exercice::class, "exercices_clients", "client_id", "exercice_id")->using(ExerciceClient::class);
+    public function exercice_clients():HasMany{
+        return $this->hasMany(ExerciceClient::class);
+    }
+
+    public function getCurrentExerciceClient() {
+        $exercices_clients = $this->exercice_clients();
+        foreach ($exercices_clients as $exercice_client) {
+            return $exercice_client->isCurrent() == true ? $exercice_client : null;
+        }
+        return null;
     }
     
-    #public function nom
+    public function getCurrentTontineRecoltes() {
+        $exercices_clients = $this->exercice_clients();
+        foreach ($exercices_clients as $exercice_client) {
+            if ($exercice_client->isCurrent()){
+                return $exercice_client->recoltes();
+            }
+        }
+        return ;
+    }
+
+    public function getCurrentTontineInfo(): String {
+        $data = [
+            "jour_cotisation" => 0,
+            "montant_journalier" => -1,
+            "jour_restant" => -1
+        ];
+
+        return json_encode($data);
+    }
 }
