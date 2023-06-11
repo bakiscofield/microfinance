@@ -37,6 +37,12 @@ class ExerciceController extends Controller
      */
     public function store(Request $request)
     {
+        $date_range = $request->input('date_debut');
+        //dd($date_range);
+        $liste = explode(" ",$date_range);
+        
+        $request['date_debut'] = $liste[0];
+        $request['date_fin'] = $liste[2];
         $exercice = Exercice::create($request->all());
         foreach(Client::all() as $client){
             ExerciceClient::create([

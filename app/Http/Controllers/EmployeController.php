@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreEmployeRequest;
 use App\Models\Employe;
 use App\Models\User;
 use App\Models\Zone;
@@ -54,7 +55,7 @@ class EmployeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreEmployeRequest $request)
     {
         $user = User::create($request->all());
         $zone = Zone::create($request->all());
@@ -73,7 +74,7 @@ class EmployeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Employe $employe)
     {
         //
     }
@@ -90,16 +91,18 @@ class EmployeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreEmployeRequest $request, Employe $employe)
     {
-        //
+        $employe->user->update($request->all());
+        return redirect()->route('employe.list');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Employe $employe)
     {
-        //
+        $employe->delete();
+        return redirect()->route("employe.index");
     }
 }
