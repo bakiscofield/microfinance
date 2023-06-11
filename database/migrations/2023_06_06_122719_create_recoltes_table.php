@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('recoltes', function (Blueprint $table) {
             $table->id();
-            $table->date("date_recolte");
+            $table->date("date_recolte")->default("now");
             $table->string("montant");
-            $table->bigInteger("id_exercice");
-            $table->bigInteger("id_agent");
+            $table->bigInteger('exercice_client_id');
             $table->timestamps();
-            $table-> foreign("id_agent")-> references("id")->on("employes");
-            $table -> foreign("id_exercice")-> references("id")->on("exercices");
-        });
+            $table->foreign("exercice_client_id")->references("id")->on("exercices_clients");
 
+        });
 
     }
 

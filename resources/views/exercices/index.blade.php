@@ -33,11 +33,15 @@
                             <button type="submit" class="update-book btn btn-sm btn-success">
                                 <a style="color: blanchedalmond;" href="">
                                     <span><i class="far fa-eye fa-lg"></i></span>
-                            </button>                                        
-                            <button type="submit" class="update-book btn btn-sm btn-warning">
-                                <a style="color: blanchedalmond;" href="">
-                                    <span><i class="far fa-edit fa-lg"></i></span>
-                            </button>  
+                            </button>   
+                            <form action="{{ route("exercice.edit", $exercice) }}" method="GET">
+                                @csrf
+                                @method("GET")                                     
+                                <button type="submit" class="update-book btn btn-sm btn-warning">
+                                    <a style="color: blanchedalmond;" href="">
+                                        <span><i class="far fa-edit fa-lg"></i></span>
+                                </button>  
+                            <form>
                             <form action="{{ route("exercice.destroy", $exercice) }}" method="post">
                                 @csrf
                                 @method("DELETE")
