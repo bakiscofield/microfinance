@@ -1,4 +1,4 @@
-@extends('layouts.base', ["title" => "Exercice", "description" => "Liste des clients."])
+@extends('layouts.base', ["title" => "Tontine", "description" => "Liste des tontine."])
 @section('content')
     <div class="block block-rounded">
         <div class="block-header">

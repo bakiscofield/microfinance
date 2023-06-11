@@ -8,7 +8,7 @@ use App\Models\Client;
 use App\Models\Exercice;
 use App\Models\Employe;
 use App\Models\ExerciceClient;
-
+use Carbon\Carbon;
 
 class RecolteController extends Controller
 {
@@ -42,7 +42,18 @@ class RecolteController extends Controller
      */
     public function create()
     {
-        
+        $current_exercice = Exercice::currentExercice();
+        //dd($current_exercice->date_debut->format("F"));
+        return view("recoltes.create_or_edit")->with([
+            "recolte"=> new Recolte(),
+            "current_exercice" => $current_exercice,
+            "clients" => Client::all(), 
+            "exercices" => Exercice::all(),
+            "recoltes_client" => [],
+            "jours" => ["1" => "lundi", "2" => "mardi", "3" => "mercredi", "4" => "jeudi", "5" => "vendredi",],
+            "to_day" => Carbon::now()->format("d-m-Y"),
+            "mounth" => $current_exercice->date_debut->format("F"),
+        ]);
     }
     
 
@@ -51,7 +62,7 @@ class RecolteController extends Controller
      */
     public function store(Request $request)
     {
-        $request["exercice_client_id"] = Client::find($request->id_client)->getCurrentExerciceClient();
+        $request["exercice_client_id"] = Client::find($request->id_client)->getCurrentExerciceClient()->id;
         Recolte::create($request->all());   
         return redirect()->route("recolte.index");
     }

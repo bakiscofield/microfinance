@@ -1,4 +1,4 @@
-@extends('layouts.base', ["title" => $title ?? "Enregistrer un exercice", "description" => $description ?? ""])
+@extends('layouts.base', ["title" => $title ?? "Enregistrer une tontine", "description" => $description ?? ""])
 @section('content')
 <div class="content">
     <div class="block block-rounded">
@@ -13,8 +13,8 @@
                         @if($exercice->id)
                             @method("put")
                         @endif
-                        <div class="form-group form-row col-12">
-                            @include("components.date_range_field", ["label" => "Interval de dates de l'exercice courant", "name" => "date_debut",  "name2" => "date_fin", "value" => $exercice->date_debut, "value2" => $exercice->date_fin,])
+                        <div class="form-group form-row col-md-12">
+                            @include("components.date_range_field", ["label" => "Interval de date", "name" => "date_debut",  "name2" => "date_fin", "value" => $exercice->date_debut, "value2" => $exercice->date_fin,])
                         </div>
                         <div class="form-group form-row col-md-12">
                             <div class="form-group col-md-12">

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("montant");
             $table->bigInteger('exercice_client_id');
             $table->timestamps();
-            $table->foreign("exercice_client_id")->references("id")->on("exercices_clients");
+            $table->foreign("exercice_client_id")->references("id")->on("exercices_clients")->cascadeOnDelete();
 
         });
 

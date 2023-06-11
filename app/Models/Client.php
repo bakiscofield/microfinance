@@ -30,9 +30,11 @@ class Client extends Model
     }
 
     public function getCurrentExerciceClient() {
-        $exercices_clients = $this->exercice_clients();
+        $exercices_clients = $this->exercice_clients;
         foreach ($exercices_clients as $exercice_client) {
-            return $exercice_client->isCurrent() == true ? $exercice_client : null;
+            if ($exercice_client->isCurrent()){
+                return $exercice_client ;
+            }
         }
         return null;
     }

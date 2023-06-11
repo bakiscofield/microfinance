@@ -37,14 +37,7 @@
                             <!--button type="submit" class="update-book btn btn-sm btn-success">
                                 <a style="color: blanchedalmond;" href="">
                                     <span><i class="far fa-eye fa-lg"></i></span>
-                            </button-->  
-                            <form action="{{ route('recolte_client.create', $exercice_client) }}" method="GET">
-                                @csrf                                 
-                                <button type="submit" class="update-book btn btn-sm" style="background: rgb(6, 169, 250);">
-                                    <a style="color: blanchedalmond;" href="">
-                                        <span><i class="far fa-edit fa-lg"></i></span>
-                                </button>  
-                            <form> 
+                            </button-->   
                             <form action="" method="GET">
                                 @csrf
                                 @method("GET")                                     
