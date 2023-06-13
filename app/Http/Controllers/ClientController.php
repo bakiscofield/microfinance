@@ -85,7 +85,8 @@ class ClientController extends Controller
     public function edit(Client $client)
     {
         $user = $client->user;
-        return view("clients.create_or_edit", compact("client", "user"));
+        $jours = ["0"=>"tous les jours","1" => "lundi", "2" => "mardi", "3" => "mercredi", "4" => "jeudi", "5" => "vendredi",];
+        return view("clients.create_or_edit", compact("client", "user","jours"));
     }
 
     /**
