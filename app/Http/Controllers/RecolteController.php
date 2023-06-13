@@ -8,7 +8,9 @@ use App\Models\Client;
 use App\Models\Exercice;
 use App\Models\Employe;
 use App\Models\ExerciceClient;
+use App\Exports\RecoltesExport;
 use Carbon\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RecolteController extends Controller
 {
@@ -97,5 +99,10 @@ class RecolteController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function export()
+    {
+        return Excel::download(new RecoltesExport, 'recoltes.xlsx');
     }
 }

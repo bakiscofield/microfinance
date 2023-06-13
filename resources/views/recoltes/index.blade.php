@@ -3,7 +3,7 @@
     <div class="block block-rounded">
         <div class="block-header">
             <div>
-                <a href="" class="btn btn-outline-primary">
+                <a href="{{ route('recolte.export') }}" class="btn btn-outline-primary">
                 <i class="fa fa-2x fa-file-export"></i> Exporter
                 </a>
             </div>
