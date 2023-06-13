@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\User;
+use App\Models\Exercice;
+use App\Models\ExerciceClient;
 use App\Http\Requests\StoreUserRequest;
 
 class ClientController extends Controller
@@ -14,7 +16,6 @@ class ClientController extends Controller
      */
     public function index()
     {
-        
         $clients = Client::all();
         return view("clients.index")->with([
             "clients" => $clients,
@@ -27,20 +28,21 @@ class ClientController extends Controller
     public function create()
     {
         $user = new User();
-        // $user->nom = "Tamba";
-        // $user->prenom = "dialo";
-        // $user->date_naissance = "25/02/2002";
-        // $user->contact = "12121212";
-        // $user->profession = "chauffeur";
-        // $user->pays = "togo";
-        // $user->ville = "lome";
-        // $user->adresse = "hghgff";
-        // $user->carte = "bhbcfser";
-        // $user->email = "fay@gmail.com";
-        // $user->password = "123456789";
+        $user->nom = "Tamba";
+        $user->prenom = "dialo";
+        $user->date_naissance = "25/02/2002";
+        $user->contact = "12121212";
+        $user->profession = "chauffeur";
+        $user->pays = "togo";
+        $user->ville = "lome";
+        $user->adresse = "hghgff";
+        $user->carte = "bhbcfser";
+        $user->email = "fay@gmail.com";
+        $user->password = "123456789";
         $client = new Client();
         $client->user_id = $user->id;
-        return view("clients.create_or_edit", compact("client", "user"));
+        $jours = ["1" => "lundi", "2" => "mardi", "3" => "mercredi", "4" => "jeudi", "5" => "vendredi",];
+        return view("clients.create_or_edit", compact("client", "user", "jours"));
     }
 
     /**
@@ -55,9 +57,16 @@ class ClientController extends Controller
 
         $user = User::create($request->all());
 
-        Client::create([
+        $client = Client::create([
             "user_id" => $user->id,
         ]);
+
+        // ExerciceClient::create([
+        //     "exercice_id" => Exercice::currentExercice()->id,
+        //     "client_id" => $client->id,
+        //     "montant_journalier" => $request->input("montant_journalier", 200),
+        //     "jour_recolte" => $request->input("jour_recolte", 0),
+        // ]);
 
         return redirect()->route("client.index");
     }
