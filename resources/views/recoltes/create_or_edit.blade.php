@@ -3,7 +3,7 @@
 <div class="content">
     <div class="block block-rounded">
         <div class="block-header">
-            <h4 class="text-uppercase">Exercice du moi de {{ $mounth ?? "" }} </h4>
+            <h4 class="text-uppercase">Récolte du moi de {{trans(strtolower($month)) ?? " "}} </h4>
             <h4 class="text-uppercase">Date : {{ $to_day }} </h4>
         </div>
         <div class="block-content block-content-full">
@@ -46,7 +46,7 @@
                         {{-- @include("components.input_field", ["label" => "Montant journalier", "name" => "montant_journalier", "value" => "", "type" => "number", "class" => "col-md-12 mb-4 montant_journalier"]) --}}
                         <div class="mb-4 form-row col-md-12">
                             @include("components.input_field", ["label" => "Montant cotisé", "name" => "montant", "value" => "", "type" => "number", "class" => "col-md-8 montant"])
-                            @include("components.input_field", ["label" => "Jours restant", "name" => "jour", "value" => "", "type" => "number", "class" => "col-md-4 jour", "other"=>"disabled"])
+                            {{--@include("components.input_field", ["label" => "Jours restant", "name" => "jour", "value" => "", "type" => "number", "class" => "col-md-4 jour", "other"=>"disabled"])--}}
                         </div>
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary w-100">Enregistrer et recommencer</button>
