@@ -58,10 +58,10 @@ class EmployeController extends Controller
     public function store(StoreEmployeRequest $request)
     {
         $user = User::create($request->all());
-        $zone = Zone::create($request->all());
+        //$zone = Zone::create($request->all());
         Employe::create([
             "user_id" => $user->id,
-            "id_zone" => $zone->id,
+            "id_zone" => null,
             "status" => $request->input('status'),
             "coordonnees" => "x,y",
             "numero_service" => $request->input('numero_service'),
