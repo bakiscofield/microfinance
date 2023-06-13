@@ -4,7 +4,7 @@
         <div class="block-header">
             <div>
                 <a href="" class="btn btn-outline-primary">
-                    <i class="fas fa-plus"></i> Exporter
+                <i class="fa fa-2x fa-file-export"></i> Exporter
                 </a>
             </div>
             <a href="{{ route('employe.create') }}" class="btn btn-outline-primary">
@@ -35,22 +35,31 @@
                         <td class="text-center d-none d-sm-table-cell font-size-sm">{{ $employe->user->contact }}</td>
                         <td class="text-center d-none d-sm-table-cell font-size-sm">{{ $employe->user->pays }}</td>
                         <td class="text-center d-none d-sm-table-cell font-size-sm">{{ $employe->user->ville }}</td>
-                        <td class="text-center d-none d-sm-table-cell font-size-sm">{{ $employe->numero }}</td>
+                        <td class="text-center d-none d-sm-table-cell font-size-sm">{{ $employe->numero_service }}</td>
                         <td class="text-center d-none d-sm-table-cell font-size-sm">{{ $employe->status }}</td>
                         <td class="text-center"> 
-                            <button type="button" class="update-book btn btn-sm btn-success">
-                                <a style="color: blanchedalmond;" href="{% url 'main:edit_evaluation' evaluation.id %}">
-                                    <span><i class="far fa-eye fa-lg"></i></span>
-                            </button>                                        
-                            <button type="button" class="update-book btn btn-sm btn-warning">
-                                <a style="color: blanchedalmond;" href="{{route('employe.edit',$employe)}}">
-                                    <span><i class="far fa-edit fa-lg"></i></span>
-                                </a>    
-                            </button>  
-                            <button type="button" class="delete-evaluation btn btn-sm btn-danger">
-                                <a style="color: blanchedalmond;" href="{% url 'main:delete_evaluation' evaluation.id %}">
-                                    <span><i class="fa fa-fw fa-times mr-1"></i></span>
-                            </button>                                    
+                            <!--form action="{{route('employe.show',$employe)}}" method="get">
+                                <button type="submit" class="update-book btn btn-sm btn-success">
+                                   
+                                        <span><i class="far fa-eye fa-lg"></i></span>
+                                </button>   
+                            </form-->
+                            <form action="{{route('employe.edit',$employe)}}" method="get">
+                                @csrf
+                                <button type="submit" class="update-book btn btn-sm btn-warning">
+                                    <!--a style="color: blanchedalmond;" href="{{route('employe.edit',$employe)}}"-->
+                                        <span><i class="far fa-edit fa-lg"></i></span>
+                                    </a>    
+                                </button>  
+                            </form>                         
+                            <form action="{{route('employe.destroy',$employe)}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="delete-evaluation btn btn-sm btn-danger">
+                                    <!--a style="color: blanchedalmond;" href="{% url 'main:delete_evaluation' evaluation.id %}"-->
+                                        <span><i class="fa fa-fw fa-times mr-1"></i></span>
+                                </button>  
+                            </form>                           
                         </td> 
                     </tr>
                     @empty

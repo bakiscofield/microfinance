@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('zones', function (Blueprint $table) {
             $table->id();
-            $table->string("nom");
-            $table->text("description");
+            $table->string("nom_zone")->nullable();
+            $table->text("description")->nullable();
             $table->timestamps();
         });
     }

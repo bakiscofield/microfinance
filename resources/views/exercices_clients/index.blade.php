@@ -4,7 +4,7 @@
         <div class="block-header">
             <div>
                 <a href="" class="btn btn-outline-primary">
-                    <i class="fas fa-plus"></i> Exporter
+                <i class="fa fa-2x fa-file-export"></i> Exporter
                 </a>
             </div>
             <a href="{{ route('exercices_clients.create') }}" class="btn btn-outline-primary">

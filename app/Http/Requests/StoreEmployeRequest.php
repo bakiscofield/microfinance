@@ -23,7 +23,19 @@ class StoreEmployeRequest extends StoreUserRequest
     {
         return [
             'status' => ['required'],
-            'numero' => ['required'],
+            'numero_service' => ['required'],
+
+            'nom' => ['required','min:3'],
+            'prenom' => ['required','min:3'],
+            'email' => ['email'],
+            'password' => ['required','confirmed','min:8','string','regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).+$/'],
+            'password_confirmation' => ['required'],
+            'contact' => ['required'],
+            'date_naissance' => ['required','date'],
+            'profession' => ['required'],
+
+            'pays' => ['required'],
+            'ville' => ['required'],
             //'coordonnees' => ['']
         ];
     }

@@ -17,7 +17,7 @@
                         <div class="form-group form-row">
                             @include("components.input_field", ["label" => "nom", "name" => "nom", "value" => $user->nom,])
                             @include("components.input_field", ["label" => "prénom", "name" => "prenom", "value" => $user->prenom,])
-                            @include("components.input_field", ["label" => "date naissance", "name" => "date_naissance", "value" => $user->date_naissance,])
+                            @include("components.input_field", ["label" => "date naissance", "name" => "date_naissance", "value" => $user->date_naissance,"type"=>"date"])
                         </div>
                         <div class="form-group form-row">
                             @include("components.input_field", ["label" => "contact", "name" => "contact", "value" => $user->contact,])
@@ -26,19 +26,21 @@
                         <div class="form-group form-row">
                             @include("components.input_field", ["label" => "pays", "name" => "pays", "value" => $user->pays,])
                             @include("components.input_field", ["label" => "ville", "name" => "ville", "value" => $user->ville,])
-                            @include("components.input_field", ["label" => "adresse", "name" => "adresse", "value" => $user->adresse,])
+                            @include("components.input_field", ["label" => "adresse", "name" => "adresse", "value" => $user->adresse,"optionnal"=>"true"])
                         </div>
                         <div class="form-group form-row">
                             @include("components.input_field", ["label" => "profession", "class" => "col-6", "name" => "profession", "value" => $user->profession,])
-                            @include("components.input_field", ["label" => "carte", "class" => "col-6", "name" => "carte", "value" => $user->carte,])
+                            @include("components.input_field", ["label" => "carte", "class" => "col-6", "name" => "carte", "value" => $user->carte,"optionnal"=>"true","placeholder" => "(identité, électeur,...)"])
                         </div>
+                        @yield("children_content")
                         @if(! $user->id)
                         <div class="form-group form-row">
-                            @include("components.input_field", ["label" => "mot de passe", "class" => "col-6", "name" => "password", "value" => "", "type" => "password","placeholder" => "8 au moins une Maj,une minus,chiffre,spécial"])
-                            @include("components.input_field", ["label" => "comfirmer mot de passe", "class" => "col-6", "name" => "password_confirmation", "value" => "", "type" => "password",])
+                            @include("components.input_field", ["label" => "mot de passe", "class" => "col-12", "name" => "password", "value" => "", "type" => "password",])
+                            <div class="form-text"><small>Au moins 8 caractères contenant une lettre majuscule,une lettre miniscule,un chiffre et un caractère spécial</small> </div>
+                            @include("components.input_field", ["label" => "comfirmer mot de passe", "class" => "col-12", "name" => "password_confirmation", "value" => "", "type" => "password",])
                         </div>
                         @endif
-                        @yield("children_content")
+                        
                         <button type="submit" class="btn btn-primary w-100">Enregistrer</button>
                     </form>
                 </div>

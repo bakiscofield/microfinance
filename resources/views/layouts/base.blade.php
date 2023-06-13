@@ -33,6 +33,8 @@
         <link rel="stylesheet" href="/assets/js/plugins/ion-rangeslider/css/ion.rangeSlider.css">
         <link rel="stylesheet" href="/assets/js/plugins/dropzone/dist/min/dropzone.min.css">
         <link rel="stylesheet" href="/assets/js/plugins/flatpickr/flatpickr.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf_viewer.min.css">
+
     </head>
     <body>
         <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow">
@@ -938,6 +940,10 @@
         <script src="/assets/js/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
         <script src="/assets/js/plugins/dropzone/dropzone.min.js"></script>
         <script src="/assets/js/plugins/flatpickr/flatpickr.min.js"></script>
+        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+        <!-- pdf.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
 
         <!-- Page JS Helpers (Flatpickr + BS Datepicker + BS Colorpicker + BS Maxlength + Select2 + Masked Inputs + Ion Range Slider plugins) -->
         <script>jQuery(function () { One.helpers(['flatpickr', 'datepicker', 'colorpicker', 'maxlength', 'select2', 'masked-inputs', 'rangeslider']);  });</script>
@@ -952,6 +958,7 @@
                 }
             });
         </script-->
+        
         @yield("scripts")
     </body>
 </html>

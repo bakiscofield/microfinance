@@ -9,7 +9,7 @@
     $optionnal = $optionnal ?? false;
 @endphp
 <div class="text-capitalize {{ $class }}">
-    <label>{{ $label }} @if($optionnal) <span class="bg-success">(optionnel)</span>  @endif </label>
+    <label>{{ $label }} @if($optionnal) <span class="text-success ">(optionnel)</span>  @endif </label>
     <input type="{{ $type }}" name="{{ $name }}" value="{{ $value }}" class="form-control @error($name) is-invalid @enderror" placeholder="{{ $placeholder }}" {{ $other ?? "" }}>
     @error($name)
     <span class="alert text-danger">{{ $message }}</span>

@@ -11,7 +11,7 @@ class Employe extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "user_id", "status","numero","coordonnees","id_zone",
+        "user_id", "status","numero_service","coordonnees","id_zone",
     ];
 
     public function user() :BelongsTo{
