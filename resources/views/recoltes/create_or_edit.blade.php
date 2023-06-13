@@ -3,7 +3,7 @@
 <div class="content">
     <div class="block block-rounded">
         <div class="block-header">
-            <h4 class="text-uppercase">Exercice du moi de {{ $mounth ?? "" }} </h4>
+            <h4 class="text-uppercase">Exercice du moi de {{ trans(strtolower($mounth) ?? "") }} </h4>
             <h4 class="text-uppercase">Date : {{ $to_day }} </h4>
         </div>
         <div class="block-content block-content-full">
