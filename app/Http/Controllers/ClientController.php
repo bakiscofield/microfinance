@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\User;
 use App\Models\Exercice;
+use App\Exports\ClientsExport;
 use App\Models\ExerciceClient;
 use App\Http\Requests\StoreUserRequest;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClientController extends Controller
 {
@@ -85,7 +87,8 @@ class ClientController extends Controller
     public function edit(Client $client)
     {
         $user = $client->user;
-        return view("clients.create_or_edit", compact("client", "user"));
+        $jours = ["0"=>"tous les jours","1" => "lundi", "2" => "mardi", "3" => "mercredi", "4" => "jeudi", "5" => "vendredi",];
+        return view("clients.create_or_edit", compact("client", "user","jours"));
     }
 
     /**
@@ -104,5 +107,10 @@ class ClientController extends Controller
     {
         $client->delete();
         return redirect()->route("client.index");
+    }
+
+    public function export()
+    {
+        return Excel::download(new ClientsExport, 'user.xlsx');
     }
 }

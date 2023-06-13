@@ -33,5 +33,24 @@
     "Verify Email Address": "Vérifier l'adresse e-mail",
     "Whoops!": "Oups !",
     "You are receiving this email because we received a password reset request for your account.": "Vous recevez cet e-mail car nous avons reçu une demande de réinitialisation de mot de passe pour votre compte.",
-    "june" : "Juin"
+    "january":"janvier",
+    "february":"février",
+    "march":"mars",
+    "april":"avril",
+    "may":"mai",
+    "june":"juin",
+    "july":"juillet",
+    "august":"août",
+    "september":"septembre",
+    "october":"octobre",
+    "november":"novembre",
+    "december":"décembre"
+
+
+
+
+
+
+
+
 }

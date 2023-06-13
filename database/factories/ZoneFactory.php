@@ -17,7 +17,7 @@ class ZoneFactory extends Factory
     public function definition(): array
     {
         return [
-            "nom"=> fake()->address(),
+            "nom_zone"=> fake()->address(),
             "description" => fake()->text(),
         ];
     }

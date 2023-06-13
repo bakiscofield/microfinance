@@ -468,7 +468,7 @@
                 </div>
                 <!-- END Side Content -->
             </aside>
-            <nav id="sidebar" aria-label="Main Navigation">
+            <nav id="sidebar" aria-label="Main Navigation" class="bg-dark">
                 <!-- Side Header -->
                 <div class="content-header bg-white-5">
                     <!-- Logo -->
@@ -477,7 +477,7 @@
                             <i class="fa fa-circle-notch text-primary"></i>
                         </span>
                         <span class="smini-hide font-size-h5 tracking-wider">
-                            One<span class="font-w400">UI</span>
+                            Tontine<span class="font-w400">LINK</span>
                         </span>
                     </a>
                     <!-- END Logo -->
@@ -485,13 +485,12 @@
                     <!-- Extra -->
                     <div>
                         <!-- Options -->
-                        <div class="dropdown d-inline-block ml-2">
+                        <!--div class="dropdown d-inline-block ml-2">
                             <a class="btn btn-sm btn-dual" id="sidebar-themes-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                                 <i class="si si-drop"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right font-size-sm smini-hide border-0" aria-labelledby="sidebar-themes-dropdown">
-                                <!-- Color Themes -->
-                                <!-- Layout API, functionality initialized in Template._uiHandleTheme() -->
+                               
                                 <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="default" href="#">
                                     <span>Default</span>
                                     <i class="fa fa-circle text-default"></i>
@@ -516,33 +515,31 @@
                                     <span>Smooth</span>
                                     <i class="fa fa-circle text-smooth"></i>
                                 </a>
-                                <!-- END Color Themes -->
+                               
 
                                 <div class="dropdown-divider"></div>
 
-                                <!-- Sidebar Styles -->
-                                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                               
                                 <a class="dropdown-item font-w500" data-toggle="layout" data-action="sidebar_style_light" href="#">
                                     <span>Sidebar Light</span>
                                 </a>
                                 <a class="dropdown-item font-w500" data-toggle="layout" data-action="sidebar_style_dark" href="#">
                                     <span>Sidebar Dark</span>
                                 </a>
-                                <!-- Sidebar Styles -->
+
 
                                 <div class="dropdown-divider"></div>
 
-                                <!-- Header Styles -->
-                                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                               
                                 <a class="dropdown-item font-w500" data-toggle="layout" data-action="header_style_light" href="#">
                                     <span>Header Light</span>
                                 </a>
                                 <a class="dropdown-item font-w500" data-toggle="layout" data-action="header_style_dark" href="#">
                                     <span>Header Dark</span>
                                 </a>
-                                <!-- Header Styles -->
+                               
                             </div>
-                        </div>
+                        </div-->
                         <!-- END Options -->
 
                         <!-- Close Sidebar, Visible only on mobile screens -->
@@ -564,35 +561,37 @@
                         <ul class="nav-main">
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="be_pages_dashboard.html">
-                                    <i class="nav-main-link-icon si si-speedometer"></i>
-                                    <span class="nav-main-link-name">Dashboard</span>
+                                    <i class="nav-main-link-icon si si-speedometer text-danger"></i>
+                                    <span class="nav-main-link-name text-danger">Dashboard</span>
                                 </a>
                             </li>
 
-                            <li class="nav-main-heading">Gestion tontine</li>
+                            <li class="nav-main-heading text-danger fw-bold ">Gestion tontine</li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="{{ route('client.index') }}">
-                                    <i class="nav-main-link-icon si si-energy"></i>
-                                    <span class="nav-main-link-name">Clients</span>
+                                    <i class="nav-main-link-icon si si-energy text-danger"></i>
+                                    
+                                    <span class="nav-main-link-name text-primary">Clients</span>
                                 </a>
                                 <a class="nav-main-link" href="{{ route('exercice.index') }}">
-                                    <i class="nav-main-link-icon si si-energy"></i>
-                                    <span class="nav-main-link-name">Tontines</span>
+                                    <i class="nav-main-link-icon si si-energy text-danger"></i>
+                                    <span class="nav-main-link-name text-primary">Tontines</span>
                                 </a>
                                 <a class="nav-main-link" href="{{ route('exercices_clients.index') }}">
-                                    <i class="nav-main-link-icon si si-energy"></i>
-                                    <span class="nav-main-link-name">Tontines clients</span>
+                                    <i class="nav-main-link-icon si si-energy text-danger" ></i>
+                                    <span class="nav-main-link-name text-primary">Tontines clients</span>
                                 </a>
                                 <a class="nav-main-link" href="{{ route('recolte.index') }}">
-                                    <i class="nav-main-link-icon si si-energy"></i>
-                                    <span class="nav-main-link-name">Récoltes</span>
+                                    <i class="nav-main-link-icon si si-energy text-danger"></i>
+                                   
+                                    <span class="nav-main-link-name text-primary">Récoltes</span>
                                 </a>
                             </li>
-                            <li class="nav-main-heading">Paramètre généraux</li>
+                            <li class="nav-main-heading text-danger fw-bold ">Paramètre généraux</li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="{{ route('employe.index') }}">
-                                    <i class="nav-main-link-icon si si-energy"></i>
-                                    <span class="nav-main-link-name">Employes</span>
+                                    <i class="nav-main-link-icon si si-energy text-danger"></i>
+                                    <span class="nav-main-link-name text-primary">Employes</span>
                                 </a>
                             </li>
                         </ul>
