@@ -4,7 +4,7 @@
         <div class="block-header">
             <div>
                 <a href="" class="btn btn-outline-primary">
-                    <i class="fas fa-plus"></i> Exporter
+                <i class="fa fa-2x fa-file-export"></i> Exporter
                 </a>
             </div>
             <a href="{{ route('exercice.create') }}" class="btn btn-outline-primary">
@@ -30,26 +30,26 @@
                         <td class="d-none d-sm-table-cell text-center text-capitalize">{{ $exercice->date_fin }}</td>
                         <td class="d-none d-sm-table-cell text-center text-capitalize">{{ "Solde" }}</td>
                         <td class="text-center"> 
-                            <button type="submit" class="update-book btn btn-sm btn-success">
+                            <!--button type="submit" class="update-book btn btn-sm btn-success">
                                 <a style="color: blanchedalmond;" href="">
                                     <span><i class="far fa-eye fa-lg"></i></span>
-                            </button>   
-                            <form action="{{ route("exercice.edit", $exercice) }}" method="GET">
-                                @csrf
-                                @method("GET")                                     
+                            </button-->   
+                            <form action="{{ route('exercice.edit', $exercice) }}" method="GET">                                  
                                 <button type="submit" class="update-book btn btn-sm btn-warning">
-                                    <a style="color: blanchedalmond;" href="">
+                                    <!--a style="color: blanchedalmond;" href=""-->
                                         <span><i class="far fa-edit fa-lg"></i></span>
                                 </button>  
-                            <form>
-                            <form action="{{ route("exercice.destroy", $exercice) }}" method="post">
+                            </form>
+
+                            <form action="{{ route('exercice.destroy', $exercice) }}" method="post">
                                 @csrf
                                 @method("DELETE")
                                 <button type="submit" class="delete-evaluation btn btn-sm btn-danger" id="delete_instance">
-                                    <a style="color: blanchedalmond;" href="">
+                                    
                                         <span><i class="fa fa-fw fa-times mr-1"></i></span>
                                 </button> 
-                            </form>                                   
+                            </form>     
+                                                           
                         </td> 
                     </tr>
                     @empty

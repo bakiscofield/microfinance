@@ -28,6 +28,11 @@ class StoreUserRequest extends FormRequest
             'password' => ['required','confirmed','min:8','string','regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).+$/'],
             'password_confirmation' => ['required'],
             'contact' => ['required'],
+            'date_naissance' => ['required','date'],
+            'profession' => ['required'],
+
+            'pays' => ['required'],
+            'ville' => ['required'],
         ];
     }
 /*

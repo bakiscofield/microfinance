@@ -19,8 +19,8 @@ return new class extends Migration
             $table->bigInteger("id_zone")->nullable();
             $table->string("coordonnees")->nullable();
             $table->timestamps();
-            $table->foreign("user_id")->references("id")->on("users");
-            $table->foreign("id_zone")->references("id")->on("zones");
+            $table->foreign("user_id")->references("id")->on("users")->constrained()->onDelete('cascade');
+            $table->foreign("id_zone")->references("id")->on("zones")->constrained()->onDelete('cascade');
         });
     }
 

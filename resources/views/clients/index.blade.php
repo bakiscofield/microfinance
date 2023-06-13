@@ -2,7 +2,7 @@
 @section('content')
     <div class="block block-rounded">
         <div class="block-header">
-            <div>
+            <div id="export-btn">
                 <a href="" class="btn btn-outline-primary">
                     <i class="fa fa-2x fa-file-export"></i> Exporter
                 </a>
@@ -12,7 +12,10 @@
             </a>
         </div>
         <div class="block-content block-content-full">
-            <table class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination">
+            <div class="pdf-preview">
+                
+            </div>
+            <table class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination" id="export-table">
                 <thead>
                     <tr>
                         <th class="text-center" style="width: 80px;">Id</th>
@@ -34,11 +37,11 @@
                         <td class="text-center d-none d-sm-table-cell font-size-sm">{{ $client->user->pays }}</td>
                         <td class="text-center d-none d-sm-table-cell font-size-sm">{{ $client->user->ville }}</td>
                         <td class="text-center"> 
-                            <form action="{{ route('client.show', $client) }}" method="GET">
+                            <!---form action="{{ route('client.show', $client) }}" method="GET">
                                 <button type="submit" class="btn btn-sm btn-success">
                                     <span><i class="far fa-eye fa-lg"></i></span>                                
                                 </button> 
-                            </form>      
+                            </form-->      
                             <form action="{{ route('client.edit', $client) }}" method="GET">
                                 <button type="submit" class="btn btn-sm btn-warning">
                                     <span><i class="far fa-edit fa-lg"></i></span>
@@ -58,6 +61,7 @@
                             <h3 class="text-center">Aucun client.</h3>
                         </div>
                     @endforelse
+    
                 </tbody>
             </table>
         </div>

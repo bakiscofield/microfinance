@@ -11,7 +11,7 @@ class Zone extends Model
     use HasFactory;
     protected $fillable = [
         "id_client",
-        "nom",
+        "nom_zone",
         "description",
         "agent_responsable",
     ];

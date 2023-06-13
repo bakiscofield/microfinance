@@ -62,9 +62,9 @@ class EmployeController extends Controller
         Employe::create([
             "user_id" => $user->id,
             "id_zone" => $zone->id,
-            "status" => "agent",
+            "status" => $request->input('status'),
             "coordonnees" => "x,y",
-            "numero" => "45454545",
+            "numero_service" => $request->input('numero_service'),
 
         ]);
 
@@ -76,7 +76,7 @@ class EmployeController extends Controller
      */
     public function show(Employe $employe)
     {
-        //
+        return "show page";
     }
 
     /**
@@ -93,8 +93,9 @@ class EmployeController extends Controller
      */
     public function update(StoreEmployeRequest $request, Employe $employe)
     {
-        $employe->user->update($request->all());
-        return redirect()->route('employe.list');
+        //$employe->user->update($request->all());
+        $employe->update($request->all());
+        return redirect()->route('employe.index');
     }
 
     /**
@@ -103,6 +104,6 @@ class EmployeController extends Controller
     public function destroy(Employe $employe)
     {
         $employe->delete();
-        return redirect()->route("employe.index");
+        return \redirect()->route("employe.index");
     }
 }
