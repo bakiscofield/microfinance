@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\User;
 use App\Models\Exercice;
+use App\Exports\ClientsExport;
 use App\Models\ExerciceClient;
 use App\Http\Requests\StoreUserRequest;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClientController extends Controller
 {
@@ -105,5 +107,10 @@ class ClientController extends Controller
     {
         $client->delete();
         return redirect()->route("client.index");
+    }
+
+    public function export()
+    {
+        return Excel::download(new ClientsExport, 'user.xlsx');
     }
 }

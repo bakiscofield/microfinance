@@ -41,6 +41,8 @@ Route::post('client/enregistrement', [ClientController::class, 'store'])->name("
 Route::put('client/mis_a_jours/{client}', [ClientController::class, 'update'])->name("client.update");
 Route::get('client/{client}', [ClientController::class, 'show'])->name("client.show");
 Route::delete('client/{client}', [ClientController::class, 'destroy'])->name("client.destroy");
+//Exportation
+Route::get('export', [ClientController::class, 'export'])->name("client.export");
 
 Route::get('exercice/list', [ExerciceController::class, 'index'])->name("exercice.index");
 Route::get('exercice/formulaire/creation', [ExerciceController::class, 'create'])->name("exercice.create");
