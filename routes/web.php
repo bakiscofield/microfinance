@@ -66,6 +66,7 @@ Route::get('recoltes/formulaire/creation/{exerciceClient}', [RecolteController::
 Route::get('client/current_tontine_info/{client}', [ExerciceClientController::class, 'getCurrentExerciceInformationByClient'])->name("client_info.get");
 
 Route::resource('recolte', RecolteController::class);
+Route::get('exportRecolte', [RecolteController::class, 'export'])->name("recolte.export");
 Route::resource('exercices_clients', ExerciceClientController::class);
 
 require __DIR__.'/auth.php';
