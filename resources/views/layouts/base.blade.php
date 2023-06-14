@@ -506,9 +506,9 @@
                     <div class="content-side">
                         <ul class="nav-main">
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="/">
-                                    <i class="nav-main-link-icon si si-speedometer fa-2x text-white"></i>
-                                    <span class="nav-main-link-name text-white">Dashboard</span>
+                                <a class="nav-main-link" href="{{ route('dashboard') }}">
+                                    <i class="nav-main-link-icon si si-speedometer"></i>
+                                    <span class="nav-main-link-name">Dashboard</span>
                                 </a>
                             </li>
 
@@ -773,6 +773,7 @@
 
             <!-- Main Container -->
             <main id="main-container">
+                @if (Route::currentRouteName() != 'dashboard')
                 <div class="bg-body-light">
                     <div class="content content-full">
                         <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
@@ -783,6 +784,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                @yield('content')
             </main>
             <!-- END Main Container -->
