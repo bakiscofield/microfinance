@@ -10,7 +10,7 @@ class Recolte extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "date_recolte","montant", "exercice_client_id"
+        "date_recolte","montant", "exercice_client_id", "agent"
     ];
 
     public function exercice_client():BelongsTo{
