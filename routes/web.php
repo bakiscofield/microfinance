@@ -63,9 +63,7 @@ Route::middleware('auth')->group(function () {
     //Exportation
     Route::get('export', [ClientController::class, 'export'])->name("client.export");
 
-});
-
-// Actual day report generation
+    // Actual day report generation
 Route::get('/generate-today-report', [RapportController::class, 'generateTodayReport'])->name("generate.report");
 
 //client's routes
@@ -97,6 +95,9 @@ Route::resource('exercices_clients', ExerciceClientController::class);
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+});
 
 
 

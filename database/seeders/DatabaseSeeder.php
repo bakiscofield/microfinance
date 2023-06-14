@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         $user->ville = 'Paris';
         $user->adresse = '123 Rue du Test';
         $user->carte = '1234567890123456';
-        $user->email = 'john@example.com';
+        $user->email = 'mbf@ifnti.com';
         $user->email_verified_at = now();
         $user->password = bcrypt('password');
         $user->remember_token = Str::random(10);
