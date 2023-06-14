@@ -25,8 +25,17 @@
                                 </div>
                             </div> --}}
                             <div class="col-md-12">
+                                <label for="client">Agent</label>
+                                <select name="agent" id="" class="form-control mb-4">
+                                    <option value="">Séléctionner un agent</option>
+                                    @foreach($agents as $agent)
+                                    <option value="{{ $agent->id }}">{{ $agent->user->fullName }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-12">
                                 <label for="client">Client</label>
-                                <select name="id_client" id="client" class="form-control mb-4">
+                                <select name="id_client" id="" class="form-control mb-4">
                                     <option value="">Séléctionner un client</option>
                                     @foreach($clients as $client)
                                     <option value="{{ $client->id }}">{{ $client->user->fullName }}</option>

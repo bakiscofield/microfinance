@@ -16,8 +16,10 @@ return new class extends Migration
             $table->date("date_recolte")->default("now");
             $table->string("montant");
             $table->bigInteger('exercice_client_id');
+            $table->bigInteger('agent')->nullable();
             $table->timestamps();
             $table->foreign("exercice_client_id")->references("id")->on("exercices_clients")->cascadeOnDelete();
+            $table->foreign("agent")->references("id")->on("employes")->cascadeOnDelete()->nullOnDelete();
 
         });
 
