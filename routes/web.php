@@ -7,9 +7,13 @@ use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\ExerciceController;
 use App\Http\Controllers\RecolteController;
 use App\Http\Controllers\ExerciceClientController;
+use App\Http\Controllers\RapportController;
 use App\Models\User;
 use App\Models\Client;
 use App\Models\Employe;
+use App\Models\Exercice;
+use App\Models\Recolte;
+use App\Models\Zone;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +31,33 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $latestUsers = User::latest()->take(7)->get();
+    $latestRecoltes = Recolte::latest()->take(7)->get();
+    $nbreClients = Client::all()->count();
+    $nbreZones = Zone::all()->count();
+    $nbreTontines = Exercice::all()->count();
+    $montantRecoltes = Recolte::all()->sum('montant');
+
+
+    $data = [
+        'latestUsers' => $latestUsers,
+        'latestRecoltes' => $latestRecoltes,
+        'nbreClients' => $nbreClients,
+        'nbreZones' => $nbreZones,
+        'nbreTontines' => $nbreTontines,
+        'montantRecoltes' => $montantRecoltes,
+    ];
+
+    return view('dashboard', $data);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 
 });
+
+// Actual day report generation
+Route::get('/generate-today-report', [RapportController::class, 'generateTodayReport'])->name("generate.report");
+
 //client's routes
 Route::get('client/list', [ClientController::class, 'index'])->name("client.index");
 Route::get('client/formulaire/creation', [ClientController::class, 'create'])->name("client.create");

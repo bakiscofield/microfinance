@@ -25,6 +25,6 @@ class Zone extends Model
     }
 
     public function quartiers():HasMany{
-        return $tihs->hasMany(Quartier::class);
+        return $this->hasMany(Quartier::class);
     }
 }
