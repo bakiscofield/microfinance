@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $user = new User();
-        $user->nom = 'John';
-        $user->prenom = 'Doe';
+        $user->nom = 'mbf';
+        $user->prenom = 'mbf';
         $user->date_naissance = '1990-01-01';
         $user->contact = '93561240';
         $user->profession = 'Développeur';
@@ -42,17 +42,18 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(500)->create();
-        Zone::factory(10)->create();
+        Zone::factory(250)->create();
 
         $users = User::query()->limit(250)->get();
+        $zones = Zone::all();
         
-        $users->each(function ($user){
+        for($i=0; $i< count($users); $i++){
             Client::factory()->create([
-                'user_id' => $user->id,
-                'zone_id' => null,
+                'user_id' => $users[$i],
+                'zone_id' => $zones[$i],
             ]);
-        });
-
+        }
+        
         $users = User::latest()->limit(250)->get();
         $users->each(function ($user){
             Employe::factory()->create([
