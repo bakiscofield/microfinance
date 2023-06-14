@@ -39,6 +39,7 @@
     <body>
         <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow">
             <!-- Side Overlay-->
+            @auth
             <aside id="side-overlay">
                 <!-- Side Header -->
                 <div class="content-header border-bottom">
@@ -468,87 +469,32 @@
                 </div>
                 <!-- END Side Content -->
             </aside>
-            <nav id="sidebar" aria-label="Main Navigation" class="bg-dark">
+            <nav id="sidebar" aria-label="Main Navigation" class="" style="background: #a79115">
                 <!-- Side Header -->
                 <div class="content-header bg-white-5">
                     <!-- Logo -->
-                    <a class="font-w600 text-dual" href="index.html">
+                    <a class="font-w600 text-dual" href="">
                         <span class="smini-visible">
                             <i class="fa fa-circle-notch text-primary"></i>
                         </span>
-                        <span class="smini-hide font-size-h5 tracking-wider">
+                        <span class="smini-hide font-size-h4 tracking-wider">
                             Tontine<span class="font-w400">LINK</span>
+                        </span>
+                        <span>
+                            <img src="/assets/img/logo.png" alt="" width="50px">
                         </span>
                     </a>
                     <!-- END Logo -->
 
                     <!-- Extra -->
-                    <div>
-                        <!-- Options -->
-                        <!--div class="dropdown d-inline-block ml-2">
-                            <a class="btn btn-sm btn-dual" id="sidebar-themes-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                                <i class="si si-drop"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right font-size-sm smini-hide border-0" aria-labelledby="sidebar-themes-dropdown">
-                               
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="default" href="#">
-                                    <span>Default</span>
-                                    <i class="fa fa-circle text-default"></i>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="/assets/css/themes/amethyst.min.css" href="#">
-                                    <span>Amethyst</span>
-                                    <i class="fa fa-circle text-amethyst"></i>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="/assets/css/themes/city.min.css" href="#">
-                                    <span>City</span>
-                                    <i class="fa fa-circle text-city"></i>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="/assets/css/themes/flat.min.css" href="#">
-                                    <span>Flat</span>
-                                    <i class="fa fa-circle text-flat"></i>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="/assets/css/themes/modern.min.css" href="#">
-                                    <span>Modern</span>
-                                    <i class="fa fa-circle text-modern"></i>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between font-w500" data-toggle="theme" data-theme="/assets/css/themes/smooth.min.css" href="#">
-                                    <span>Smooth</span>
-                                    <i class="fa fa-circle text-smooth"></i>
-                                </a>
-                               
-
-                                <div class="dropdown-divider"></div>
-
-                               
-                                <a class="dropdown-item font-w500" data-toggle="layout" data-action="sidebar_style_light" href="#">
-                                    <span>Sidebar Light</span>
-                                </a>
-                                <a class="dropdown-item font-w500" data-toggle="layout" data-action="sidebar_style_dark" href="#">
-                                    <span>Sidebar Dark</span>
-                                </a>
-
-
-                                <div class="dropdown-divider"></div>
-
-                               
-                                <a class="dropdown-item font-w500" data-toggle="layout" data-action="header_style_light" href="#">
-                                    <span>Header Light</span>
-                                </a>
-                                <a class="dropdown-item font-w500" data-toggle="layout" data-action="header_style_dark" href="#">
-                                    <span>Header Dark</span>
-                                </a>
-                               
-                            </div>
-                        </div-->
-                        <!-- END Options -->
-
+                    {{-- <div>
                         <!-- Close Sidebar, Visible only on mobile screens -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
                         <a class="d-lg-none btn btn-sm btn-dual ml-1" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0)">
                             <i class="fa fa-fw fa-times"></i>
                         </a>
                         <!-- END Close Sidebar -->
-                    </div>
+                    </div> --}}
                     <!-- END Extra -->
                 </div>
                 <!-- END Side Header -->
@@ -560,44 +506,49 @@
                     <div class="content-side">
                         <ul class="nav-main">
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_pages_dashboard.html">
-                                    <i class="nav-main-link-icon si si-speedometer text-danger"></i>
-                                    <span class="nav-main-link-name text-danger">Dashboard</span>
+                                <a class="nav-main-link" href="/">
+                                    <i class="nav-main-link-icon si si-speedometer fa-2x text-white"></i>
+                                    <span class="nav-main-link-name text-white">Dashboard</span>
                                 </a>
                             </li>
 
-                            <li class="nav-main-heading text-danger fw-bold ">Gestion tontine</li>
+                            <li class="nav-main-heading fw-bold ">
+                                <h6 class="text-white">Gestion tontine</h6>
+                            </li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="{{ route('client.index') }}">
-                                    <i class="nav-main-link-icon si si-energy text-danger"></i>
+                                    <i class="nav-main-link-icon fa fa-2x fa-users text-white"></i>
                                     
-                                    <span class="nav-main-link-name text-primary">Clients</span>
+                                    <span class="nav-main-link-name text-white">Clients</span>
                                 </a>
                                 <a class="nav-main-link" href="{{ route('exercice.index') }}">
-                                    <i class="nav-main-link-icon si si-energy text-danger"></i>
-                                    <span class="nav-main-link-name text-primary">Tontines</span>
+                                    <i class="nav-main-link-icon fa fa-2x fa-archive text-white"></i>
+                                    <span class="nav-main-link-name text-white">Tontines</span>
                                 </a>
                                 <a class="nav-main-link" href="{{ route('exercices_clients.index') }}">
-                                    <i class="nav-main-link-icon si si-energy text-danger" ></i>
-                                    <span class="nav-main-link-name text-primary">Tontines clients</span>
+                                    <i class="nav-main-link-icon fa fa-2x fa-book-open text-white" ></i>
+                                    <span class="nav-main-link-name text-white">Tontines par clients</span>
                                 </a>
                                 <a class="nav-main-link" href="{{ route('recolte.index') }}">
-                                    <i class="nav-main-link-icon si si-energy text-danger"></i>
+                                    <i class="nav-main-link-icon far fa-2x fa-money-bill-alt text-white"></i>
                                    
-                                    <span class="nav-main-link-name text-primary">Récoltes</span>
+                                    <span class="nav-main-link-name text-white">Récoltes par client</span>
                                 </a>
                             </li>
-                            <li class="nav-main-heading text-danger fw-bold ">Paramètre généraux</li>
+                            <li class="nav-main-heading fw-bold ">
+                                <h6 class="text-white">Paramètre généraux</h6>
+                            </li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="{{ route('employe.index') }}">
-                                    <i class="nav-main-link-icon si si-energy text-danger"></i>
-                                    <span class="nav-main-link-name text-primary">Employes</span>
+                                    <i class="nav-main-link-icon fa fa-2x fa-users-cog text-white"></i>
+                                    <span class="nav-main-link-name text-white">Employes</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
+            @endauth
             <!-- END Sidebar -->
 
             <!-- Header -->
@@ -608,7 +559,7 @@
                     <div class="d-flex align-items-center">
                         <!-- Toggle Sidebar -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout()-->
-                        <button type="button" class="btn btn-sm btn-dual mr-2 d-lg-none" data-toggle="layout" data-action="sidebar_toggle">
+                        {{-- <button type="button" class="btn btn-sm btn-dual mr-2 d-lg-none" data-toggle="layout" data-action="sidebar_toggle">
                             <i class="fa fa-fw fa-bars"></i>
                         </button>
                         <!-- END Toggle Sidebar -->
@@ -631,7 +582,7 @@
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
                         <button type="button" class="btn btn-sm btn-dual d-md-none" data-toggle="layout" data-action="header_search_on">
                             <i class="fa fa-fw fa-search"></i>
-                        </button>
+                        </button> --}}
                         <!-- END Open Search Section -->
 
                         <!-- Search Form (visible on larger screens) -->
@@ -680,9 +631,12 @@
                                     <a class="dropdown-item d-flex align-items-center justify-content-between" href="op_auth_lock.html">
                                         <span class="font-size-sm font-w500">Lock Account</span>
                                     </a>
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="op_auth_signin.html">
-                                        <span class="font-size-sm font-w500">Log Out</span>
-                                    </a>
+                                    <form action="/logout" method="post">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item d-flex align-items-center justify-content-between">
+                                            <span class="font-size-sm font-w500">Log Out</span>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -777,9 +731,9 @@
 
                         <!-- Toggle Side Overlay -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        <button type="button" class="btn btn-sm btn-dual ml-2" data-toggle="layout" data-action="side_overlay_toggle">
+                        {{-- <button type="button" class="btn btn-sm btn-dual ml-2" data-toggle="layout" data-action="side_overlay_toggle">
                             <i class="fa fa-fw fa-list-ul fa-flip-horizontal"></i>
-                        </button>
+                        </button> --}}
                         <!-- END Toggle Side Overlay -->
                     </div>
                     <!-- END Right Section -->
@@ -837,11 +791,8 @@
             <footer id="page-footer" class="bg-body-light">
                 <div class="content py-3">
                     <div class="row font-size-sm">
-                        <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-right">
-                            Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href="https://1.envato.market/ydb" target="_blank">pixelcave</a>
-                        </div>
                         <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-left">
-                            <a class="font-w600" href="https://1.envato.market/AVD6j" target="_blank">OneUI 4.7</a> &copy; <span data-toggle="year-copy"></span>
+                            <a class="font-w600" href="https://1.envato.market/AVD6j" target="_blank">FINANCIAL MANAGEMENTE</a> &copy; <span data-toggle="year-copy"></span>
                         </div>
                     </div>
                 </div>
