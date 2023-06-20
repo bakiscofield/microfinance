@@ -17,16 +17,29 @@ class RapportController extends Controller
         $zones = Zone::all();
         $rapport = [];
 
+        // Prise en compte des zones dans le calcul
+
+        // foreach ($exercices as $exercice) {
+        //     foreach ($zones as $zone) {
+        //         $rapport[$exercice->id][$zone->nom_zone] = 0;
+        //         foreach ($exercice->exercice_clients as $exercice_client) {
+        //             if ($exercice_client->client->zone->nom_zone == $zone->nom_zone) {
+        //                 foreach ($exercice_client->recoltes as $recolte) {
+        //                     if ($recolte->date_recolte == today()) {
+        //                         $rapport[$exercice->id][$zone->nom_zone] += $recolte->montant;
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+
         foreach ($exercices as $exercice) {
-            foreach ($zones as $zone) {
-                $rapport[$exercice->id][$zone->nom_zone] = 0;
-                foreach ($exercice->exercice_clients as $exercice_client) {
-                    if ($exercice_client->client->zone->nom_zone == $zone->nom_zone) {
-                        foreach ($exercice_client->recoltes as $recolte) {
-                            if ($recolte->date_recolte == today()) {
-                                $rapport[$exercice->id][$zone->nom_zone] += $recolte;
-                            }
-                        }
+            $rapport[$exercice->id] = 0;
+            foreach ($exercice->exercice_clients as $exercice_client) {
+                foreach ($exercice_client->recoltes as $recolte) {
+                    if ($recolte->date_recolte == today()) {
+                        $rapport[$exercice->id] += $recolte->montant;
                     }
                 }
             }

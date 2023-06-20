@@ -507,8 +507,8 @@
                         <ul class="nav-main">
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="{{ route('dashboard') }}">
-                                    <i class="nav-main-link-icon si si-speedometer"></i>
-                                    <span class="nav-main-link-name">Dashboard</span>
+                                    <i class="nav-main-link-icon si si-speedometer text-white fa-2x"></i>
+                                    <span class="nav-main-link-name text-white">Dashboard</span>
                                 </a>
                             </li>
 

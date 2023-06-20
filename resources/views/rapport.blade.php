@@ -17,14 +17,12 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Zone</th>
                             <th>Récolte</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($rapport[$exercice->id] as $key => $donnees)
+                        @foreach ($rapport as $donnees)
                         <tr>
-                            <td>Zone {{ $key }}</td>
                             <td>{{ $donnees }} FCFA</td>
                         </tr>
                         @endforeach
